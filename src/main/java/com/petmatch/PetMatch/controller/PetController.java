@@ -1,7 +1,5 @@
 package com.petmatch.PetMatch.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,12 +28,10 @@ public class PetController {
 	public ModelAndView index() {
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization","Bearer " + ps.getToken());
-		//String url="https://api.petfinder.com/v2/oauth2/token="+token;
-		
-		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity("paramters",headers), Pets.class);
+		headers.add("Authorization","Bearer " + ps.getToken());		
+		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity("paramters", headers), Pets.class);
 				
-		return new ModelAndView("index","display", petResponse.getBody());
+		return new ModelAndView("index","display", petResponse.getBody().getPagenation());
 	}
 	
 }

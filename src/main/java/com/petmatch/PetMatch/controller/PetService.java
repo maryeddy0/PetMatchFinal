@@ -22,7 +22,6 @@ public class PetService {
 		RestTemplate rt = new RestTemplate();
 		// we used the postForObject() method because this request is a POST in the Github documentation
 		Map<String, String> response = rt.postForObject("https://api.petfinder.com/v2/oauth2/token", params, Map.class);
-//		System.out.println(response.get("access_token"));
 		return response.get("access_token");
 	}
 }

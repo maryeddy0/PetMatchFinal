@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Pets {
 
 	private List<Animals> animal;
-	private String pagenation;
+	private Pagination pagenation;
 
 	public Pets() {
 		super();
@@ -20,7 +20,7 @@ public class Pets {
 		this.animal = animal;
 	}
 
-	public Pets(String pagenation) {
+	public Pets(Pagination pagenation) {
 		super();
 		this.pagenation = pagenation;
 	}
@@ -33,11 +33,11 @@ public class Pets {
 		this.animal = animal;
 	}
 	
-	public String getPagenation() {
+	public Pagination getPagenation() {
 		return pagenation;
 	}
 
-	public void setPagenation(String pagenation) {
+	public void setPagenation(Pagination pagenation) {
 		this.pagenation = pagenation;
 	}
 
