@@ -3,14 +3,12 @@ package com.petmatch.PetMatch.entity;
 public class Pagination {
 
 	private Long count_per_page;
-	private Long count;
 	private Long total_count;
 	private Long total_pages;
 	
 	public Pagination(Long count_per_page, Long count, Long total_count, Long total_pages) {
 		super();
 		this.count_per_page = count_per_page;
-		this.count = count;
 		this.total_count = total_count;
 		this.total_pages = total_pages;
 	}
@@ -29,13 +27,6 @@ public class Pagination {
 		this.count_per_page = count_per_page;
 	}
 
-	public Long getCount() {
-		return count;
-	}
-
-	public void setCount(Long count) {
-		this.count = count;
-	}
 
 	public Long getTotal_count() {
 		return total_count;
@@ -55,10 +46,11 @@ public class Pagination {
 
 	@Override
 	public String toString() {
-		return "Pagination [count_per_page=" + count_per_page + ", count=" + count + ", total_count=" + total_count
-				+ ", total_pages=" + total_pages + "]";
+		return "Pagination [count_per_page=" + count_per_page + ", total_count=" + total_count + ", total_pages="
+				+ total_pages + "]";
 	}
-	
+
+
 	
 	
 }

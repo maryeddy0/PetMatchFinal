@@ -31,7 +31,7 @@ public class PetController {
 		headers.add("Authorization","Bearer " + ps.getToken());		
 		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity("paramters", headers), Pets.class);
 				
-		return new ModelAndView("index","display", petResponse.getBody().getPagenation().getCount());
+		return new ModelAndView("index","display", petResponse.getBody().getPagination().getTotal_count());
 	}
 	
 }
