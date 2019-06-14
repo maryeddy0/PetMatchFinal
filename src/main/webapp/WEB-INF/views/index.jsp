@@ -18,7 +18,7 @@
 
 </form>
 
-<p><a href= "GET grant_type=client_credentials&client_id=fuQHOKNZV3QdyNL63qgZ01BTWVwqMHrKZwyTDn1TcJNZMcapSg&client_secret=D4NpNeUohjBSVvxPuMQ8FQ9zJbGVP3xPDheK2vzW">Login to Pet Match</a></p>
+<p><a href= "GET grant_type=client_credentials&client_id=fuQHOKNZV3QdyNL63qgZ01BTWVwqMHrKZwyTDn1TcJNZMcapSg&client_secret=D4NpNeUohjBSVvxPuMQ8FQ9zJbGVP3xPDheK2vzW/result">Login to Pet Match</a></p>
 
 </body>
 </html>
