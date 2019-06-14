@@ -1,13 +1,13 @@
 package com.petmatch.PetMatch.entity;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Pets {
 
-	private List<Animals> animal;
+	private ArrayList<Animals> animals;
 	private Pagination pagination;
 
 	public Pets() {
@@ -16,23 +16,22 @@ public class Pets {
 	}
 	
 	
-	
 
-	public Pets(List<Animals> animal, Pagination pagination) {
+	public Pets(ArrayList<Animals> animals, Pagination pagination) {
 		super();
-		this.animal = animal;
+		this.animals = animals;
 		this.pagination = pagination;
 	}
 
 
 
 
-	public List<Animals> getAnimal() {
-		return animal;
+	public ArrayList<Animals> getAnimals() {
+		return animals;
 	}
 
-	public void setAnimal(List<Animals> animal) {
-		this.animal = animal;
+	public void setAnimals(ArrayList<Animals> animals) {
+		this.animals = animals;
 	}
 
 	public Pagination getPagination() {
@@ -46,10 +45,10 @@ public class Pets {
 
 
 
-	@Override
-	public String toString() {
-		return "Pets [animal=" + animal + ", pagination=" + pagination + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Pets [animal=" + animals + ", pagination=" + pagination + "]";
+//	}
 
 
 

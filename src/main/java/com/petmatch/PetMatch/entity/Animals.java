@@ -1,12 +1,14 @@
 package com.petmatch.PetMatch.entity;
 
+
+//fix me
 public class Animals {
 	
 	private Integer id;
 	private String type;
 	private String species;
-	private String breed;
-	private String environment;
+	private String breed; //fix me
+	private String environment; // fix me
 	
 	public Animals() {
 		super();
