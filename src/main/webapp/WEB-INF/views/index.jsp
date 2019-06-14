@@ -20,6 +20,6 @@
 <form action="/animals">
 </form>
 
-${display.total_count}
+${display}
 </body>
 </html>
