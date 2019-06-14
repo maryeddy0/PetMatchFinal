@@ -20,5 +20,6 @@
 <form action="/animals">
 </form>
 
+${display}
 </body>
 </html>
