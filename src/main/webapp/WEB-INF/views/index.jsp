@@ -14,8 +14,6 @@
 <input type="text" name="name">
 <input type="submit" value="submit">
 
-
-
 </form>
 <form action="/animals">
 </form>
