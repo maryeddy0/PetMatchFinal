@@ -18,10 +18,15 @@
 </form>
 <form action="/animals">
 </form>
+	<Table>
 	<c:forEach items="${display}" var="a">
-		${a.type}
-		${a.species}
+	<tr>
+		<td>${a.type}</td> 
+		<td>${a.species}</td>
+		<td><a href="${a.url}">URL</a></td>
+	</tr>
 	</c:forEach>
+	</Table>
 
 </body>
 </html>
