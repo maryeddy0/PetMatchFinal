@@ -18,7 +18,6 @@
 	
 	<h1>Default Pets</h1>
 	<div class="container"><br />
-		
 		<Table class="table" border="1">
 			<% int count = 1; %>
 			<c:forEach items="${display}" var="a">
@@ -29,6 +28,6 @@
 			</c:forEach> 
 		
 		</Table>
-</div>
+	</div>
 </body>
 </html>

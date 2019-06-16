@@ -1,6 +1,8 @@
 package com.petmatch.PetMatch.entities;
 
 
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -19,6 +21,7 @@ public class Animal {
 	private Environment environment; //check if the pet is good with children
 	private Contact contact;
 	private Links links;//to check what's in there(have to display it in order to know)
+	private ArrayList<Photos> photos;
 	
 	
 
@@ -40,6 +43,12 @@ public class Animal {
 		return organization_id;
 	}
 
+	public ArrayList<Photos> getPhotos() {
+		return photos;
+	}
+	public void setPhotos(ArrayList<Photos> photos) {
+		this.photos = photos;
+	}
 	public void setOrganization_id(String organization_id) {
 		this.organization_id = organization_id;
 	}
