@@ -23,12 +23,11 @@ public class YelpController {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer "+yelpKey);
-//		headers.add("client_id","3nqlTcuth53wV6WLxBEigw");
 		headers.add("location", "Dearborn, MI");
 		
 		String url = "https://api.yelp.com/v3/businesses/search";
 		ResponseEntity<String> yelpResponse = rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), String.class);
-		mv.addObject("yelp",yelpResponse.getBody());
+		mv.addObject("yelp", yelpResponse.getBody());
 		return mv;
 	}
 
