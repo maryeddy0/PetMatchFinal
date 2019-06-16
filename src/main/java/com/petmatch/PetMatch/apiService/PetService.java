@@ -1,4 +1,4 @@
-package com.petmatch.PetMatch.controller;
+package com.petmatch.PetMatch.apiService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,18 +9,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class PetService {
+	@Value("${pet.key}")
+	String petKey;
 	
 	RestTemplate rt = new RestTemplate();
+	
 	public String getToken() {
-		
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
-		// client_id and the client_secret (key) is required for the request to get the access token
-		params.put("client_id", "SFhCZcxIvWN2ea61KjZIIGJVZmwr0n8SStHj8HkID2pItwRMzz");
-		params.put("client_secret", "3I7pl4iCM8xxiFGdECsaMRMg0flTh4XCKu8wcQLJ");
+		params.put("client_id", petKey);
+		params.put("client_secret", "ATzD0I5Kl6f6FL0OQYQpmAZlc3Pmx70BQcBLCotV");
 		
 		RestTemplate rt = new RestTemplate();
-		// we used the postForObject() method because this request is a POST in the Github documentation
+		@SuppressWarnings("unchecked")//is this ok to add in order to get rid of warning below??
 		Map<String, String> response = rt.postForObject("https://api.petfinder.com/v2/oauth2/token", params, Map.class);
 		return response.get("access_token");
 	}
