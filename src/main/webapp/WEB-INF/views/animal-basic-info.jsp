@@ -8,13 +8,15 @@
 </head>
 <body>
 	<form action="get-photo">
-	<!-- need to know more infor about the App logic planning. in order to make more pojos and with certain field. which it will leads to move the fields around inside the previous pojos -->
+		
+	<!-- need to know more info about the App logic planning. in order to make more pojos and with certain field. which it will leads to move the fields around inside the previous pojos -->
 	<!--  <a href="%{basicInfo.organization_id}">Hello!</a> -->
 	
 	</form>
-Name: ${basicInfo.name}<br />
-Age: ${basicInfo.age}<br />
-Gender: ${basicInfo.gender}
+	<img src="${photo}"><br />
+	Name: ${basicInfo.name}<br />
+	Age: ${basicInfo.age}<br />
+	Gender: ${basicInfo.gender}
 
 </body>
 </html>

@@ -51,6 +51,7 @@ public class PetController {
 		ModelAndView mv = new ModelAndView("animal-basic-info");
 //		mv.addObject("photo", petResponse.getBody().getAnimal());
 		mv.addObject("basicInfo",petResponse.getBody().getAnimal());
+		mv.addObject("photo", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
 		return mv;
 	}
 	
