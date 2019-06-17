@@ -31,8 +31,10 @@ public class DBController {
 
 	}
 	
-	
-	
+	@RequestMapping("/question")
+public ModelAndView questOne() {
+		return new ModelAndView("question");
+	}
 	
 	
 	
