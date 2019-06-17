@@ -34,5 +34,7 @@
 		</Table>
 	</div>
 	
+	${quest }
+	
 </body>
 </html>

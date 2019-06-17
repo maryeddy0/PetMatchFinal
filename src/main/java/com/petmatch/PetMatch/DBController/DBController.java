@@ -1,4 +1,4 @@
-package com.petmatch.PetMatch.personal;
+package com.petmatch.PetMatch.DBController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,7 @@ import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
 @RestController
-public class MaryController {
+public class DBController {
 
 	@Value("${pet.key}")
 	String petKey;
@@ -20,16 +20,21 @@ public class MaryController {
 	PetService ps;
 	
 	RestTemplate rt = new RestTemplate();
-//	
-//	@Autowired
-//	PetsRepo pr;
-//	
-//	@RequestMapping ("/")
-//	public ModelAndView displayTable() {
-//		return new ModelAndView("question", "quest", pr.findAll());
-//
-//	}
-//	
+	
+	@Autowired
+	PetsRepo pr;
+	
+	@RequestMapping ("/table")
+	public ModelAndView displayTable() {
+		System.out.println(pr);
+		return new ModelAndView("index", "quest", pr.findAll());
+
+	}
+	
+	
+	
+	
+	
 	
 //	@RequestMapping ("qa")
 //	public ModelAndView qSpace(@RequestParam ("keyword") String keyword) {
