@@ -20,17 +20,16 @@ public class MaryController {
 	PetService ps;
 	
 	RestTemplate rt = new RestTemplate();
-	
-	@Autowired
-	PetsRepo pr;
-	
-	@RequestMapping ("/")
-	public ModelAndView displayTable() {
-		return new ModelAndView("question", "quest", pr.findAll());
-		
-		
-	}
-	
+//	
+//	@Autowired
+//	PetsRepo pr;
+//	
+//	@RequestMapping ("/")
+//	public ModelAndView displayTable() {
+//		return new ModelAndView("question", "quest", pr.findAll());
+//
+//	}
+//	
 	
 //	@RequestMapping ("qa")
 //	public ModelAndView qSpace(@RequestParam ("keyword") String keyword) {
