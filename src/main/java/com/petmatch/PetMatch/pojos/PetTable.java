@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Pets {
+@Table(name="pets")
+public class PetTable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -14,12 +16,11 @@ public class Pets {
 	private String petType;
 	private String keywords;
 	
-	
-	public Pets() {
+	public PetTable() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Pets(Integer petid, String petType, String keywords) {
+	public PetTable(Integer petid, String petType, String keywords) {
 		super();
 		this.petid = petid;
 		this.petType = petType;
@@ -47,9 +48,5 @@ public class Pets {
 	public String toString() {
 		return "Pets [petid=" + petid + ", petType=" + petType + ", keywords=" + keywords + "]";
 	}
-	
-
-	
-	
 	
 }
