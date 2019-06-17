@@ -8,6 +8,10 @@
 <title>PetMatchApp</title>
 </head>
 <body>
+	<form action="to-yelp">
+	response: ${yelp}
+	</form>
+	
 	<h1>WELCOME TO PET MATCH APP</h1>
 	
 	<h1>Login to find your perfect pet match</h1>
@@ -29,5 +33,6 @@
 		
 		</Table>
 	</div>
+	
 </body>
 </html>

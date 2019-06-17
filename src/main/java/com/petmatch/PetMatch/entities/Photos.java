@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Photos {
-	private String Medium;
+	private String medium;
 
 	public Photos() {
 		super();
@@ -12,11 +12,11 @@ public class Photos {
 	}
 
 	public String getMedium() {
-		return Medium;
+		return medium;
 	}
 
 	public void setMedium(String medium) {
-		Medium = medium;
+		this.medium = medium;
 	}
 	
 	

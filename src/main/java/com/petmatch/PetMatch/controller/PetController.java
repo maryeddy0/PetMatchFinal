@@ -20,9 +20,6 @@ import com.petmatch.PetMatch.entities.Pets;
 
 @Controller
 public class PetController {
-	@Value("${pet.key}")
-	String petKey;
-	
 	@Autowired
 	PetService ps;
 	
