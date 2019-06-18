@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.petmatch.PetMatch.apiService.PetService;
+import com.petmatch.PetMatch.entities.AnimalType;
 import com.petmatch.PetMatch.entities.Pet;
 import com.petmatch.PetMatch.entities.PetTypes;
 import com.petmatch.PetMatch.entities.Pets;
@@ -52,33 +53,17 @@ public class PetController {
 		return mv;
 	}
 	
-	@RequestMapping("/types")
-	public ModelAndView getAllTypes() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization","Bearer " + ps.getToken());	
-		
-		String url ="https://api.petfinder.com/v2/types";
-		ResponseEntity<PetTypes> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), PetTypes.class);
-		
-		ModelAndView mv = new ModelAndView("types-page");
-//		mv.addObject("photo", petResponse.getBody().getAnimal());
-		mv.addObject("allTypes",petResponse.getBody().getTypes());
-		return mv;
-	}
-	
-	//hasn't test this one yet. 
-//	@RequestMapping("/send-id")
-//	public ModelAndView matchingAnimalId(@RequestParam("id") String orgId) {  
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.add("Authorization","Bearer " + ps.getToken());	
-//		
-//		String url ="https://api.petfinder.com/v2/organizations/"+orgId;
-//		ResponseEntity<Pets> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
-//		
-//		ModelAndView mv = new ModelAndView("location-page");
-//		mv.addObject("displayAddress", petResponse.getBody());
-//		
-//		return mv;
-//	}
+	   @RequestMapping("/types")
+	    public ModelAndView getAllTypes() {
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.add("Authorization","Bearer " + ps.getToken());    
+	        
+	        String url ="https://api.petfinder.com/v2/types/dog";
+	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
+	        System.out.println(petResponse.getBody().getType().getName());
+	        ModelAndView mv = new ModelAndView("types-page");
+	        mv.addObject("allTypes",petResponse.getBody().getType().getName());
+	        return mv;
+	    }
 	
 }

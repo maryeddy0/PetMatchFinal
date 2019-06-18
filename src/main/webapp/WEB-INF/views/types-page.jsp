@@ -9,19 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container"><br />
-		
-		<Table class="table" border="1">
-			<% int count = 1; %>
-			<c:forEach items="${allTypes}" var="a">
-				<tr>	
-					<td><%= count++ %></td>
-					<td>${a.name}</td>
-				</tr>
-			</c:forEach> 
-		
-		</Table>
-	</div>
+
+${allTypes}
+
 
 </body>
 </html>

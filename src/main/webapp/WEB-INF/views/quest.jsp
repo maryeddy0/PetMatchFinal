@@ -28,7 +28,7 @@
 
 </form>
 
-<form action="/cost">
+<!-- <form action="/cost">
 <p>How much can you spend each month?</p>
 <input type="radio" name="50" value="50">$50<br>
 <input type="radio" name="50 - 100" value="50 - 100">$50-100<br>
@@ -49,7 +49,7 @@
 <input type="radio" name="loud" value="loud">Loud<br>
 <input type="radio" name="minimal" value="minimal">minimal<br>
 <input type = "submit" value="Submit">
-</form>
+</form> -->
 
 </body>
 </html>

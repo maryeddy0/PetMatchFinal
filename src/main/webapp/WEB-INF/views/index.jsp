@@ -8,12 +8,12 @@
 <title>PetMatchApp</title>
 </head>
 <body>
-	<form action="q">
+<!-- 	<!-- <form action="q">
 		<input type="text" name="range"> 
 		<input type="submit" value="next">
 	</form>
-	
-	<!-- <form action="to-yelp">
+	 -->
+	<form action="to-yelp">
 	response: ${yelp}
 	</form>
 	
@@ -28,17 +28,21 @@
 	<h1>Default Pets</h1>
 	<div class="container"><br />
 		<Table class="table" border="1">
-	int count = 1; 1; %>
-			<c:forEach items="${display}" var="a">
-				<tr>	
-					<tdcount++t++ %></td>
+			<c:forEach items="${allType}" var="a">
+				<tr>
 					<td><a href="send-animalId?id=${a.id}">Pet Info</a>
 				</tr>
 			</c:forEach> 
 		
 		</Table>
 	</div>
-	 -->
+	 
+	 <form action="/t">
+	 <c:forEach items="${singleType}" var="st">
+	 	name: ${st.name}
+	 </c:forEach>
+	 
+	 </form>
 	<form action="/testing">${quest}</form>
 
 </body>
