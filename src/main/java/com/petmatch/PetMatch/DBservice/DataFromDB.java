@@ -34,14 +34,13 @@ public class DataFromDB {
 		Map<String, Integer> matchRate = new HashMap<>(); 
 		String str = "outdoor";//assuming the input is "outdoor" = testing
 		
-		int counter = 0;
 		for(int i = 0; i < getKeywords().size(); i++) {
 			if(getKeywords().get(i).contains(str)) {
 				if(matchRate.containsKey(getTypes().get(i))) {
 					incrementValue(matchRate, getTypes().get(i));
 				}
 				else{
-					matchRate.put(getTypes().get(i), counter++);
+					matchRate.put(getTypes().get(i), 1);
 				}
 			}
 		}
