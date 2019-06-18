@@ -12,7 +12,7 @@
 		<input type="text" name="range"> 
 		<input type="submit" value="next">
 	</form>
-	<!-- <form action="to-yelp">
+	 <form action="to-yelp">
 	response: ${yelp}
 	</form>
 	
@@ -27,18 +27,18 @@
 	<h1>Default Pets</h1>
 	<div class="container"><br />
 		<Table class="table" border="1">
-	int count = 1; 1; %>
-			<c:forEach items="${display}" var="a">
+	<!--int count = 1; 1; %> -->
+			<c:forEach items="${stassidisplay}" var="a">
 				<tr>	
 					<tdcount++t++ %></td>
-					<td><a href="send-animalId?id=${a.id}">Pet Info</a>
-				</tr>
+				<!--  <td><a href="send-animalId?id=${a.id}">Pet Info</a>
+				</tr> -->
 			</c:forEach> 
 		
 		</Table>
 	</div>
-	 -->
-	<form action="/testing">${quest}</form>
+	 
+	<!-- <form action="/testing">${display}</form> -->
 
 </body>
 </html>
