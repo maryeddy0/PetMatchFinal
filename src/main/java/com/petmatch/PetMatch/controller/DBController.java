@@ -33,6 +33,4 @@ public class DBController {
 		return new ModelAndView("index", "quest", pr.findAll());
 	}
 	
-
-	
 }
