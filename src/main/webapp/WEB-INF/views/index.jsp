@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +8,10 @@
 <title>PetMatchApp</title>
 </head>
 <body>
+	<form action="q">
+		<input type="text" name="range"> 
+		<input type="submit" value="next">
+	</form>
 	<!-- <form action="to-yelp">
 	response: ${yelp}
 	</form>
@@ -23,10 +27,10 @@
 	<h1>Default Pets</h1>
 	<div class="container"><br />
 		<Table class="table" border="1">
-			<% int count = 1; %>
+	int count = 1; 1; %>
 			<c:forEach items="${display}" var="a">
 				<tr>	
-					<td><%= count++ %></td>
+					<tdcount++t++ %></td>
 					<td><a href="send-animalId?id=${a.id}">Pet Info</a>
 				</tr>
 			</c:forEach> 
@@ -34,9 +38,7 @@
 		</Table>
 	</div>
 	 -->
-	 <form action="/testing">
-		${quest}
-	 </form>
-	
+	<form action="/testing">${quest}</form>
+
 </body>
 </html>
