@@ -31,13 +31,13 @@
 	<div class="container">
 		<h1>Matching Rate</h1>
 
-		<c:forEach items="${matchBars}" var="mb">
-			<p><strong>${mb.key}</strong></p>
+		<c:forEach items="${space}" var="sp">
+			<p><strong>${sp.key}</strong></p>
 			<div class="container">
-				<div class="skills html">${mb.value}</div>
+				<div class="skills html">${sp.value}</div>
 			</div>
 		</c:forEach>
-	</div>
+	</div> 
 
 
 </body>

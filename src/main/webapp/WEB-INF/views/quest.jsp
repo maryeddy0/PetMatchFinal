@@ -29,7 +29,7 @@ ${test }
 
 </form>
 
-<!-- <form action="/cost">
+<form action="/cost">
 <p>How much can you spend each month?</p>
 <input type="radio" name="cost" value="50">$50<br>
 <input type="radio" name="cost" value="50 - 100">$50-100<br>
@@ -50,7 +50,7 @@ ${test }
 <input type="radio" name="noise" value="loud">Loud<br>
 <input type="radio" name="noise" value="minimal">Minimal<br>
 <input type = "submit" value="Submit">
-</form> -->
+</form> 
 
 </body>
 </html>

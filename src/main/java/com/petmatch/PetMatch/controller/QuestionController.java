@@ -29,11 +29,22 @@ public class QuestionController {
 
 	@RequestMapping("/spaces")
 	public ModelAndView qSpace(@RequestParam("space") String space) {
-		db.checkMatch(space);
-		return new ModelAndView("answer", "", db);
+		return new ModelAndView("answers", "space", db.checkMatch(space));
 	}
 
-//		@RequestMapping("")
-//		public ModelAndView 
+	@RequestMapping("/interact")		
+	public ModelAndView petInteraction(@RequestParam ("interact") String interaction) {
+		return new ModelAndView("answers", "inter", db.checkMatch(interaction));
+	}
+	
+	@RequestMapping("/cost")		
+	public ModelAndView petCost(@RequestParam ("cost") String cost) {
+		return new ModelAndView("answers", "cost", db.checkMatch(cost));
+	}
+	
+	@RequestMapping("/hours")		
+	public ModelAndView petTimeAvailable(@RequestParam ("hours") String hours) {
+		return new ModelAndView("answers", "hours", db.checkMatch(hours));
+	}
 
 }
