@@ -14,8 +14,8 @@
 
 <form action="/spaces">
 <p>Where do you have space to share?</p>
-<input type="radio" name="indoor" value="indoor">Indoor<br>
-<input type="radio" name="outdoor" value="outdoor">Outdoor<br>
+<input type="radio" name="space" value="indoor">Indoor<br>
+<input type="radio" name="space" value="outdoor">Outdoor<br>
 <input type = "submit" value="Submit">
 </form>
 
