@@ -38,16 +38,16 @@
 
 <form action="/hours">
 <p>How many hours will someone be home?</p>
-<input type="radio" name="hours" value="less than 5">less than 5<br>
-<input type="radio" name="hours" value="less than 8">less than 8<br>
-<input type="radio" name="hours" value="more than 8">more than 8<br>
+<input type="radio" name="hours" value="less than 5">Less than 5<br>
+<input type="radio" name="hours" value="less than 8">Less than 8<br>
+<input type="radio" name="hours" value="more than 8">More than 8<br>
 <input type = "submit" value="Submit">
 </form>
 
 <form action="/noise">
 <p>What is a noise level you are comfortable with?</p>
 <input type="radio" name="noise" value="loud">Loud<br>
-<input type="radio" name="noise" value="minimal">minimal<br>
+<input type="radio" name="noise" value="minimal">Minimal<br>
 <input type = "submit" value="Submit">
 </form>
 
