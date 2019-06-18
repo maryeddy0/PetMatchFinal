@@ -30,7 +30,7 @@ public class DataFromDB {
 	}
 	
 	//check match in terms of budget
-	public Map<String, Integer> checkBudget() {
+	public Map<String, Integer> checkMatch() {
 		Map<String, Integer> matchRate = new HashMap<>(); 
 		String str = "outdoor";//assuming the input is "outdoor" = testing
 		
