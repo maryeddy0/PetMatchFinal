@@ -17,8 +17,7 @@
 
 	<h3>How much money can you spend in a month?</h3>
 	<form action="/questions">
-		<input type="text" name="range">
-		<input type="submit" value="next">
+		
 	
 <!--  
 		<select name="range">

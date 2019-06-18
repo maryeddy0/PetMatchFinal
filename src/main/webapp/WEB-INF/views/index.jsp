@@ -12,6 +12,7 @@
 		<input type="text" name="range"> 
 		<input type="submit" value="next">
 	</form>
+	
 	<!-- <form action="to-yelp">
 	response: ${yelp}
 	</form>
