@@ -30,10 +30,10 @@ public class DataFromDB {
 	}
 	
 	//check match 	
-	public Map<String, Integer> checkMatch() {
+	public Map<String, Integer> checkMatch(String str) {
 		Map<String, Integer> matchRate = new HashMap<>(); 
-		String str = "outdoor";//assuming the input is "outdoor" => just testing
-		
+//		String str = "outdoor";//assuming the input is "outdoor" => just testing
+//		
 		for(int i = 0; i < getKeywords().size(); i++) { //getKeywords() = access the method called getKeywords(), that method return a list.
 			if(getKeywords().get(i).contains(str)) {  //check the index in this keywordsList to see if the input matches any word in the keywords list(look up database)
 				if(matchRate.containsKey(getTypes().get(i))) {// check if the hash map has already have the type listed in

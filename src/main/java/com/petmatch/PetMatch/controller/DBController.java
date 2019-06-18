@@ -31,7 +31,6 @@ public class DBController {
 	public ModelAndView displayTable() {
 		System.out.println(pr);
 		return new ModelAndView("index", "quest", pr.findAll());
-
 	}
 	
 
