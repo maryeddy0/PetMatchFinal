@@ -8,7 +8,7 @@
 <title>PetMatchApp</title>
 </head>
 <body>
-	<form action="to-yelp">
+	<!-- <form action="to-yelp">
 	response: ${yelp}
 	</form>
 	
@@ -33,8 +33,10 @@
 		
 		</Table>
 	</div>
-	
-	${quest }
+	 -->
+	 <form action="/testing">
+		${quest}
+	 </form>
 	
 </body>
 </html>

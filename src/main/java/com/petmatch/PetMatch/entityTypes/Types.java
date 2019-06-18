@@ -1,4 +1,4 @@
-package com.petmatch.PetMatch.entity.types;
+package com.petmatch.PetMatch.entityTypes;
 
 public class Types {
 

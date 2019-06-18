@@ -20,6 +20,18 @@ public class PetTable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public PetTable(String keywords) {
+		super();
+		this.keywords = keywords;
+	}
+
+	public PetTable(String petType, String keywords) {
+		super();
+		this.petType = petType;
+		this.keywords = keywords;
+	}
+
 	public PetTable(Integer petid, String petType, String keywords) {
 		super();
 		this.petid = petid;
@@ -46,7 +58,7 @@ public class PetTable {
 	}
 	@Override
 	public String toString() {
-		return "Pets [petid=" + petid + ", petType=" + petType + ", keywords=" + keywords + "]";
+		return petid + "," + petType + "," + keywords;
 	}
 	
 }
