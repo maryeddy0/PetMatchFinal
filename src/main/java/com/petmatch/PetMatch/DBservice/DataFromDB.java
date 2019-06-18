@@ -29,7 +29,7 @@ public class DataFromDB {
 		return keywordsList; 
 	}
 	
-	//check match in terms of budget
+	//check match 
 	public Map<String, Integer> checkMatch() {
 		Map<String, Integer> matchRate = new HashMap<>(); 
 		String str = "outdoor";//assuming the input is "outdoor" = testing
