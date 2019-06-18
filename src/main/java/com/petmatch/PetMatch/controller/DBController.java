@@ -34,6 +34,7 @@ public class DBController {
 
 	}
 	
+	//doing nothing for now
 	@RequestMapping("/q")
 	public ModelAndView matchAnswers(@RequestParam("range") String budget) {
 		return new ModelAndView("redirect:/");

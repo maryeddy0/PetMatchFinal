@@ -24,8 +24,8 @@ public class YelpController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer "+yelpKey);
 		String location="Dearborn,MI"; //this is where we need to take location input from user
-		String term="pets";
-		String url = "https://api.yelp.com/v3/businesses/search?location="+location+"&term="+term;
+//		String term="pets";
+		String url = "https://api.yelp.com/v3/businesses/search?location="+location+"&term=pets";
 		ResponseEntity<String> yelpResponse = rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), String.class);
 		mv.addObject("yelp", yelpResponse.getBody());
 		return mv;
