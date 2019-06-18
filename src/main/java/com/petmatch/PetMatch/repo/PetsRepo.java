@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.petmatch.PetMatch.pojos.PetTable;
+import com.petmatch.PetMatch.pojosDB.PetTable;
 
 @Repository 
 public interface PetsRepo extends JpaRepository <PetTable, Integer> {

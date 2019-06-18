@@ -1,4 +1,4 @@
-package com.petmatch.PetMatch.pojos;
+package com.petmatch.PetMatch.pojosDB;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
