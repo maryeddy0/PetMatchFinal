@@ -14,7 +14,7 @@ import com.petmatch.PetMatch.repo.PetsRepo;
 /* made this class to separate methods for API. Methods are for database stays in this class/package */
 
 @Component
-public class DataFromDB {
+public class ConnectDBAndInput {
 
 	@Autowired
 	PetsRepo pr;
