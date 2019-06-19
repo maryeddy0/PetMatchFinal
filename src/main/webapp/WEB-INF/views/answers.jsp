@@ -45,6 +45,5 @@
 			</div>
 		</c:forEach>
 	</div>
-	${maxType}
 </body>
 </html>

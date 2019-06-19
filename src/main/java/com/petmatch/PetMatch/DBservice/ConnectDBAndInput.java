@@ -58,7 +58,7 @@ public class ConnectDBAndInput {
 		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(
 			        matchRate.entrySet());
 		
-			    Collections.sort(list, new MyComparator());
+			    Collections.sort(list, new MyComparator()); //check <ComparetorForSort> Class
 			    Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
 			    for (Entry<String, Integer> entry : list) {
 			      sortedMap.put(entry.getKey(), entry.getValue());

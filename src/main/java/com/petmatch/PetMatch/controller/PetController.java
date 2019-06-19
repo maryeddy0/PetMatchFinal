@@ -61,8 +61,8 @@ public class PetController {
 	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
 	        System.out.println(petResponse.getBody().getType().getName());
 	        ModelAndView mv = new ModelAndView("types-page");
-	        mv.addObject("allTypes",petResponse.getBody().getType().getName());
-	        return mv;
+	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
 	    }
+	  
 	
 }
