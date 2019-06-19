@@ -32,6 +32,8 @@ public class PetController {
 
 		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
 		
+		
+		
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("display", petResponse.getBody().getAnimals());
 		return mv;
@@ -66,19 +68,45 @@ public class PetController {
 		return mv;
 	}
 	
-	//hasn't test this one yet. 
-//	@RequestMapping("/send-id")
-//	public ModelAndView matchingAnimalId(@RequestParam("id") String orgId) {  
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.add("Authorization","Bearer " + ps.getToken());	
-//		
-//		String url ="https://api.petfinder.com/v2/organizations/"+orgId;
-//		ResponseEntity<Pets> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
-//		
-//		ModelAndView mv = new ModelAndView("location-page");
-//		mv.addObject("displayAddress", petResponse.getBody());
-//		
-//		return mv;
-//	}
+	@RequestMapping("selected")
+	public ModelAndView selectedPets() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization","Bearer " + ps.getToken());	
+		String type = "dog";
+		String size="large";
+		Integer limit=15;
+		Integer id;
+		String url = "https://api.petfinder.com/v2/animals?type="+type+"&size="+size+"&limit="+limit;
+
+		ResponseEntity<Pets> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
+
+		ModelAndView mv = new ModelAndView("display-selected");
+		mv.addObject("type", type);
+		mv.addObject("display", petResponse.getBody().getAnimals());
+		return mv;
+	}
+	
+	@RequestMapping("detail")
+	public ModelAndView detailedInfo(@RequestParam("id") Integer animalId ) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization","Bearer " + ps.getToken());	
+
+		String url ="https://api.petfinder.com/v2/animals/" + animalId;
+		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
+		
+		ModelAndView mv = new ModelAndView("details");
+		
+		System.out.println("body " + petResponse);
+		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
+
+		try {
+			mv.addObject("picture", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
+		} catch (Exception e) {
+			mv.addObject("picture", null);
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
 	
 }
