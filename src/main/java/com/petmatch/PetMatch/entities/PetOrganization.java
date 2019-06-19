@@ -1,5 +1,5 @@
 package com.petmatch.PetMatch.entities;
-
+// Stassi
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

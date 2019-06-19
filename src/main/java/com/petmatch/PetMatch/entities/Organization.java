@@ -1,5 +1,5 @@
 package com.petmatch.PetMatch.entities;
-
+// Stassi
 public class Organization {
 	
 	private Integer id;
