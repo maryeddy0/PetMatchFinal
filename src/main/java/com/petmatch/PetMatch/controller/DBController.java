@@ -44,5 +44,17 @@ public class DBController {
 		return mv;
 	}
 	
+	@RequestMapping("/")
+	public ModelAndView indexToQuestions() {
+		return new ModelAndView("quest");
+	}
+
+	
+	@RequestMapping("/quest")
+	public ModelAndView questToAnswers() {
+		return new ModelAndView("answers");
+	}
+
+	
 	
 }
