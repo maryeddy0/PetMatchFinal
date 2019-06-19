@@ -59,10 +59,16 @@ public class PetController {
 	        
 	        String url ="https://api.petfinder.com/v2/types/dog";
 	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
-	        System.out.println(petResponse.getBody().getType().getName());
 	        ModelAndView mv = new ModelAndView("types-page");
 	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
 	    }
+   
+	   //Does nothing
+	   @RequestMapping("/seeMatch")
+	   public ModelAndView getTypeFromAPI(@RequestParam("type") String type) {
+		   ModelAndView mv = new ModelAndView();
+		   return mv;
+	   }
 	  
 	
 }
