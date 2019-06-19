@@ -21,12 +21,28 @@ public class TestController {
 	public ModelAndView indexToQuestions() {
 		return new ModelAndView("quest");
 	}
+<<<<<<< HEAD:src/main/java/com/petmatch/PetMatch/controller/TestController.java
 	
 	@RequestMapping("/quest")
 	public ModelAndView questToAnswers() {
 		return new ModelAndView("answers");
 	}
+=======
+
+<<<<<<< Updated upstream
+>>>>>>> 349c0872cf45e2a4e782ce91dae72be578c5d029:src/main/java/com/petmatch/PetMatch/controller/QuestionController.java
 
 
+=======
+	@RequestMapping("/spaces")
+	public ModelAndView qSpace(@RequestParam("space") String space,
+							   @RequestParam("interact") String interaction, 
+							   @RequestParam("cost") String cost,
+							   @RequestParam("hours") String hours,
+						       @RequestParam("hours") String time) {
+		return new ModelAndView("answers", "space", db.storeMatchInHashMap(space, interaction, cost, hours, time));
+	}
+
+>>>>>>> Stashed changes
 
 }

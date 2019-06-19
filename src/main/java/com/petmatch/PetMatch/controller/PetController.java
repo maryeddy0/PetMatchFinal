@@ -33,6 +33,8 @@ public class PetController {
 
 		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
 		
+		
+		
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("display", petResponse.getBody().getAnimals());
 		return mv;
@@ -52,17 +54,79 @@ public class PetController {
 		return mv;
 	}
 	
-	   @RequestMapping("/types")
-	    public ModelAndView getAllTypes() {
-	        HttpHeaders headers = new HttpHeaders();
-	        headers.add("Authorization","Bearer " + ps.getToken());    
-	        
-	        String url ="https://api.petfinder.com/v2/types/dog";
-	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
-	        System.out.println(petResponse.getBody().getType().getName());
-	        ModelAndView mv = new ModelAndView("types-page");
-	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
-	    }
-	  
+
+	@RequestMapping("/types")
+	public ModelAndView getAllTypes() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization","Bearer " + ps.getToken());	
+		
+		String url ="https://api.petfinder.com/v2/types";
+		ResponseEntity<PetTypes> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), PetTypes.class);
+		
+		ModelAndView mv = new ModelAndView("types-page");
+//		mv.addObject("photo", petResponse.getBody().getAnimal());
+		mv.addObject("allTypes",petResponse.getBody().getTypes());
+		return mv;
+	}
+	
+	@RequestMapping("selected")
+	public ModelAndView selectedPets() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization","Bearer " + ps.getToken());	
+		String type = "dog";
+		String size="large";
+		Integer limit=15;
+		Integer id;
+		String url = "https://api.petfinder.com/v2/animals?type="+type+"&size="+size+"&limit="+limit;
+
+		ResponseEntity<Pets> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
+
+		ModelAndView mv = new ModelAndView("display-selected");
+		mv.addObject("type", type);
+		mv.addObject("display", petResponse.getBody().getAnimals());
+		return mv;
+	}
+	
+	@RequestMapping("detail")
+	public ModelAndView detailedInfo(@RequestParam("id") Integer animalId ) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization","Bearer " + ps.getToken());	
+
+		String url ="https://api.petfinder.com/v2/animals/" + animalId;
+		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
+		
+		ModelAndView mv = new ModelAndView("details");
+		
+		System.out.println("body " + petResponse);
+		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
+
+		try {
+			mv.addObject("picture", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
+		} catch (Exception e) {
+			mv.addObject("picture", null);
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
+
+//	   @RequestMapping("/types")
+//	    public ModelAndView getAllTypesName() {
+//	        HttpHeaders headers = new HttpHeaders();
+//	        headers.add("Authorization","Bearer " + ps.getToken());    
+//	        
+//	        String url ="https://api.petfinder.com/v2/types/dog";
+//	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
+//	        ModelAndView mv = new ModelAndView("types-page");
+//	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
+//	    }
+   
+	   //Does nothing
+//	   @RequestMapping("/seeMatch")
+//	   public ModelAndView getTypeFromAPI(@RequestParam("type") String type) {
+//		   ModelAndView mv = new ModelAndView();
+//		   return mv;
+//	   }
+//	  
 	
 }

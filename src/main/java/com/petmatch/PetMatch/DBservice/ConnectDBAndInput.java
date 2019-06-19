@@ -40,57 +40,52 @@ public class ConnectDBAndInput {
 		List<String> ls = new ArrayList<>(Arrays.asList(space, interact, cost, hours, noise));
 		return ls;
 	}
-	
-	//sorted their value for display the bars in order
+
+	// sorted their value for display the bars in order
 	// store the sorted match result to hashMap
-	public  Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours,
+	public Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours,
 			String noise) {
 		Map<String, Integer> matchRate = new HashMap<>();
-		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);		
-		 
-		//sorted it by its value
-		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);    
+		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);
+
+		// sorted it by its value
+		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);
 		return valueSortedMap;
 	}
 
-	//sort map value 
+	// sort map value : needs to do more research about this one
 	private Map<String, Integer> valueSortHashMapValue(Map<String, Integer> matchRate) {
-		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(
-			        matchRate.entrySet());
-		
-			    Collections.sort(list, new MyComparator()); //check <ComparetorForSort> Class
-			    Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
-			    for (Entry<String, Integer> entry : list) {
-			      sortedMap.put(entry.getKey(), entry.getValue());
-			    }
-			  return sortedMap;
-	}
-	
-	
-	
-	//check match by loop through user inputs and keywords string
-	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
+		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(matchRate.entrySet());
+		Collections.sort(list, new MyComparator()); // check <ComparetorForSort> Class
 
+		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+		for (Entry<String, Integer> entry : list) {
+			sortedMap.put(entry.getKey(), entry.getValue());
+		}
+
+		return sortedMap;
+	}
+
+	// check match by loop through user inputs and keywords string
+	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
 		for (int i = 0; i < ls.size(); i++) {
 			for (int j = 0; j < storeKeywords().size(); j++) {
-					if (storeKeywords().get(j).contains(ls.get(i))) {
-						if (matchRate.containsKey(storeTypes().get(j))) {// if the hashmap has the key/type
-							incrementValue(matchRate, storeTypes().get(j));
-						} else {
-							matchRate.put(storeTypes().get(j), 1);
-						}
+				if (storeKeywords().get(j).contains(ls.get(i))) {//keywords column contains user input
+					if (matchRate.containsKey(storeTypes().get(j))) {// if the hash-map has the key/type
+						incrementValue(matchRate, storeTypes().get(j));//only increase its value
+					} else {
+						matchRate.put(storeTypes().get(j), 1);
 					}
 				}
 			}
+		}
 	}
 
-	
 	// if the type is already in the hash-map(in above method tells details), then
 	// just increment the its value
-	public void incrementValue(Map<String, Integer> map, String type) { // type is all defined as key value
+	public void incrementValue(Map<String, Integer> map, String type) { 
 		Integer count = map.get(type); // get the value of this certain key.
 		map.put(type, count + 1); // use the same key. but add its value by 1.
 	}
-
 
 }
