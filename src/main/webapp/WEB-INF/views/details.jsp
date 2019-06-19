@@ -28,7 +28,7 @@
 	</section>
 	
     <section class="two">
-  
+ 
 	<h3>Name: ${detailedinfo.name}</h3>
 	<h3>Age: ${detailedinfo.age}</h3>
 	<h3>Gender: ${detailedinfo.gender}</h3>

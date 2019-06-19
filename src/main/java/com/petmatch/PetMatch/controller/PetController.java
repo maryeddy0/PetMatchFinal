@@ -69,7 +69,7 @@ public class PetController {
 	}
 	
 
-	@RequestMapping("/types")
+	@RequestMapping("/Typeselected")
 	public ModelAndView getAllTypes() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
@@ -85,6 +85,9 @@ public class PetController {
 	
 	@RequestMapping("/selected")
 	public ModelAndView selectedPets(@RequestParam("type") String type) {
+		if(type.equalsIgnoreCase("fish")) {
+			type="Scales, Fins & Other";
+		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
 //		String type = "dog";
@@ -106,11 +109,14 @@ public class PetController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
 
-		String url ="https://api.petfinder.com/v2/animals/" + animalId;
+		String url ="https://api.petfinder.com/v2/animals/18660623";
 		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
 		
 		ModelAndView mv = new ModelAndView("details");
-		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
+		
+//		System.out.println("hello flora:" + petResponse.getBody().getAnimal());
+		
+		mv.addObject("detailedinfo",petResponse.getBody().getAnimal().getType());
 		String orgId = petResponse.getBody().getAnimal().getOrganization_id();
 		String url1="https://api.petfinder.com/v2/organizations/" + orgId;
 		
