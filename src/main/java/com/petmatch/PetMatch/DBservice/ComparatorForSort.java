@@ -1,0 +1,11 @@
+package com.petmatch.PetMatch.DBservice;
+
+import java.util.Comparator;
+import java.util.Map.Entry;
+
+class MyComparator implements Comparator<Entry<String, Integer>> {
+	public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+		return o1.getValue().compareTo(o2.getValue());
+	}
+}
+

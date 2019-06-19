@@ -38,7 +38,7 @@
 
 		<c:forEach items="${space}" var="sp">
 			<p>
-				<strong>${sp.key}</strong>
+				See Match(click): <a href="seeMatch?type=${sp.key}"><strong>${sp.key}</strong></a> <!-- go to petController, type is sending over... -->
 			</p>
 			<div class="container">
 				<div class="skills html">${sp.value}</div>

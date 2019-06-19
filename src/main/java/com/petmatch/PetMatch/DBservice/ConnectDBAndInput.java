@@ -2,9 +2,13 @@ package com.petmatch.PetMatch.DBservice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,18 +41,35 @@ public class ConnectDBAndInput {
 		return ls;
 	}
 	
-	// store the match result to hashMap
-	public TreeMap<String, Integer> storeMatchInTreeMap(String space, String interact, String cost, String hours,
+	//sorted their value for display the bars in order
+	// store the sorted match result to hashMap
+	public  Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours,
 			String noise) {
-
-		TreeMap<String, Integer> matchRate = new TreeMap<>();
-		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);
-		
-		return matchRate;
+		Map<String, Integer> matchRate = new HashMap<>();
+		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);		
+		 
+		//sorted it by its value
+		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);    
+		return valueSortedMap;
 	}
 
+	//sort map value 
+	private Map<String, Integer> valueSortHashMapValue(Map<String, Integer> matchRate) {
+		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(
+			        matchRate.entrySet());
+		
+			    Collections.sort(list, new MyComparator());
+			    Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+			    for (Entry<String, Integer> entry : list) {
+			      sortedMap.put(entry.getKey(), entry.getValue());
+			    }
+			  return sortedMap;
+	}
+	
+	
+	
 	//check match by loop through user inputs and keywords string
-	private void checkMatch(List<String> ls, TreeMap<String, Integer> matchRate) {
+	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
 
 		for (int i = 0; i < ls.size(); i++) {
 			for (int j = 0; j < storeKeywords().size(); j++) {
@@ -63,6 +84,7 @@ public class ConnectDBAndInput {
 			}
 	}
 
+	
 	// if the type is already in the hash-map(in above method tells details), then
 	// just increment the its value
 	public void incrementValue(Map<String, Integer> map, String type) { // type is all defined as key value

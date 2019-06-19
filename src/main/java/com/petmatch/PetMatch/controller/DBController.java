@@ -39,8 +39,8 @@ public class DBController {
 			@RequestParam(name = "hours", required = false) String hours,
 			@RequestParam(name = "noise", required = false) String noise) {
 		ModelAndView mv = new ModelAndView("answers");
-		mv.addObject("space",db.storeMatchInTreeMap(space, interact, cost, hours, noise));
-		mv.addObject("maxType", db.storeMatchInTreeMap(space, interact, cost, hours, noise).lastKey());
+		mv.addObject("space",db.storeMatchInHashMap(space, interact, cost, hours, noise));
+//		mv.addObject("maxType", db.storeMatchInHashMap(space, interact, cost, hours, noise));
 		return mv;
 	}
 	
