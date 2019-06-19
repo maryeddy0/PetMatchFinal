@@ -17,9 +17,6 @@ ${allTypes}
 	${display}
 </form>
 
-<%-- <form action="detail">
-	${body}
-</form> --%>
 
 </body>
 </html>
