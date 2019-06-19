@@ -24,27 +24,31 @@ public class QuestionController {
 
 	@RequestMapping("/test")
 	public ModelAndView qtest() {
-	return	new ModelAndView("quest");
+		return new ModelAndView("quest");
 	}
 
 	@RequestMapping("/spaces")
-	public ModelAndView qSpace(@RequestParam("space") String space) {
+	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
+			@RequestParam(name = "interact", required = false) String interact,
+			@RequestParam(name = "cost", required = false) String cost,
+			@RequestParam(name = "hours", required = false) String hours,
+			@RequestParam(name = "noise", required = false) String noise) {
 		return new ModelAndView("answers", "space", db.checkMatch(space));
 	}
 
-	@RequestMapping("/interact")		
-	public ModelAndView petInteraction(@RequestParam ("interact") String interaction) {
-		return new ModelAndView("answers", "inter", db.checkMatch(interaction));
-	}
-	
-	@RequestMapping("/cost")		
-	public ModelAndView petCost(@RequestParam ("cost") String cost) {
-		return new ModelAndView("answers", "cost", db.checkMatch(cost));
-	}
-	
-	@RequestMapping("/hours")		
-	public ModelAndView petTimeAvailable(@RequestParam ("hours") String hours) {
-		return new ModelAndView("answers", "hours", db.checkMatch(hours));
-	}
+//	@RequestMapping("/interact")		
+//	public ModelAndView petInteraction(@RequestParam ("interact") String interaction) {
+//		return new ModelAndView("answers", "inter", db.checkMatch(interaction));
+//	}
+//	
+//	@RequestMapping("/cost")		
+//	public ModelAndView petCost(@RequestParam ("cost") String cost) {
+//		return new ModelAndView("answers", "cost", db.checkMatch(cost));
+//	}
+//	
+//	@RequestMapping("/hours")		
+//	public ModelAndView petTimeAvailable(@RequestParam ("hours") String hours) {
+//		return new ModelAndView("answers", "hours", db.checkMatch(hours));
+//	}
 
 }
