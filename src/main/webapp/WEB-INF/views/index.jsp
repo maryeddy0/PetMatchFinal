@@ -12,11 +12,11 @@
 	<h1>Welcome to Friends for Life</h1>
 	
 	<h2>Click button to find your perfect pet match!</h2>
-<!--  	<form action="">
+<!-- <form action="">
 		<input type="text" name="name">
 		<input type="submit" value="submit"> 
 	</form> -->
 	
-	 <a href= "/test">Start the Test!</a>
+	 <a href= "/firstPage">Start the Test!</a>
 </body>
 </html>

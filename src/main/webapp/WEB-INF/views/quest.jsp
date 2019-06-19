@@ -41,7 +41,6 @@ function validateForm() {
 <input type="radio" name="hours" value="l8">Less than 8<br>
 <input type="radio" name="hours" value="m8">More than 8<br>
 
-<<<<<<< HEAD
 <p>How much can you spend each month?</p>
 <input type="radio" name="cost" value="50">$50<br>
 <input type="radio" name="cost" value="50 - 100">$50-100<br>
@@ -52,8 +51,6 @@ function validateForm() {
 <input type="radio" name="hours" value="less than 8">Less than 8<br>
 <input type="radio" name="hours" value="more than 8">More than 8<br>
 
-=======
->>>>>>> f0f7013b1a9366bd654eee4e646e65653e19f08b
 <p>What is a noise level you are comfortable with?</p>
 <input type="radio" name="noise" value="loud">Loud<br>
 <input type="radio" name="noise" value="minimal">Minimal<br>
