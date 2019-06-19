@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -10,13 +10,15 @@
 </head>
 <body>
 
-${allTypes}
-
-<form action="selected">
-	${type}
-	${display}
-</form>
 
 
+	<form action="Typeselected">
+		<c:forEach items="${allTypes}" var="at">
+			<c:out value="${at.name}"></c:out><br/>
+		</c:forEach>
+
+	</form>
+
+	${type} ${display}
 </body>
 </html>
