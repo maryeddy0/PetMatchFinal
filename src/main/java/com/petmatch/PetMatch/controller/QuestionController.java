@@ -22,7 +22,19 @@ public class QuestionController {
 		return new ModelAndView("quest");
 	}
 
+<<<<<<< Updated upstream
 
 
+=======
+	@RequestMapping("/spaces")
+	public ModelAndView qSpace(@RequestParam("space") String space,
+							   @RequestParam("interact") String interaction, 
+							   @RequestParam("cost") String cost,
+							   @RequestParam("hours") String hours,
+						       @RequestParam("hours") String time) {
+		return new ModelAndView("answers", "space", db.storeMatchInHashMap(space, interaction, cost, hours, time));
+	}
+
+>>>>>>> Stashed changes
 
 }

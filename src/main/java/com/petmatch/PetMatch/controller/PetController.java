@@ -122,11 +122,11 @@ public class PetController {
 //	    }
    
 	   //Does nothing
-	   @RequestMapping("/seeMatch")
-	   public ModelAndView getTypeFromAPI(@RequestParam("type") String type) {
-		   ModelAndView mv = new ModelAndView();
-		   return mv;
-	   }
-	  
+//	   @RequestMapping("/seeMatch")
+//	   public ModelAndView getTypeFromAPI(@RequestParam("type") String type) {
+//		   ModelAndView mv = new ModelAndView();
+//		   return mv;
+//	   }
+//	  
 	
 }

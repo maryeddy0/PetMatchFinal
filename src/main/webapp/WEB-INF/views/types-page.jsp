@@ -12,6 +12,14 @@
 
 ${allTypes}
 
+<form action="selected">
+	${type}
+	${display}
+</form>
+
+<%-- <form action="detail">
+	${body}
+</form> --%>
 
 </body>
 </html>
