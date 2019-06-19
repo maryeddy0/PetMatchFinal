@@ -2,7 +2,6 @@ package com.petmatch.PetMatch.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,8 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.petmatch.PetMatch.apiService.PetService;
-import com.petmatch.PetMatch.entities.AnimalType;
 import com.petmatch.PetMatch.entities.Pet;
+import com.petmatch.PetMatch.entities.PetOrganization;
 import com.petmatch.PetMatch.entities.PetTypes;
 import com.petmatch.PetMatch.entities.Pets;
 
@@ -26,6 +25,7 @@ public class PetController {
 	
 	RestTemplate rt = new RestTemplate();
 	
+<<<<<<< Updated upstream
 	@RequestMapping("/")
 	public ModelAndView index() {
 		HttpHeaders headers = new HttpHeaders();
@@ -37,6 +37,21 @@ public class PetController {
 		mv.addObject("display", petResponse.getBody().getAnimals());
 		return mv;
 	}
+=======
+//	@RequestMapping("/")
+//	public ModelAndView index() {
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.add("Authorization","Bearer " + ps.getToken());		
+//
+//		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
+//		
+//		
+//		
+//		ModelAndView mv = new ModelAndView("index");
+//		mv.addObject("display", petResponse.getBody().getAnimals());
+//		return mv;
+//	}
+>>>>>>> Stashed changes
 	
 	@RequestMapping("send-animalId")
 	public ModelAndView getAnimalInfo(@RequestParam("id") Integer animalId ) {
@@ -72,7 +87,7 @@ public class PetController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
 		String type = "dog";
-		String size="large";
+		String size="medium";
 		Integer limit=15;
 		Integer id;
 		String url = "https://api.petfinder.com/v2/animals?type="+type+"&size="+size+"&limit="+limit;
@@ -95,9 +110,22 @@ public class PetController {
 		
 		ModelAndView mv = new ModelAndView("details");
 		
-		System.out.println("body " + petResponse);
 		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
+		String orgId = petResponse.getBody().getAnimal().getOrganization_id();
+		System.out.println("ID" + orgId);
+		String url1="https://api.petfinder.com/v2/organizations/" + orgId;
+		
+		ResponseEntity<PetOrganization> orgResponse= rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers), PetOrganization.class);
+		System.out.println("Name: " + orgResponse.getBody().getOrganization().getName());
+		System.out.println("Body: " + orgResponse.getBody());
+		
+		mv.addObject("organization", orgResponse.getBody().getOrganization().getName());
+		mv.addObject("telephone", orgResponse.getBody().getOrganization().getPhone());
+		mv.addObject("city", orgResponse.getBody().getOrganization().getAddress().getCity());
+		mv.addObject("state", orgResponse.getBody().getOrganization().getAddress().getState());
+		mv.addObject("postcode", orgResponse.getBody().getOrganization().getAddress().getPostcode());
 
+		
 		try {
 			mv.addObject("picture", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
 		} catch (Exception e) {
