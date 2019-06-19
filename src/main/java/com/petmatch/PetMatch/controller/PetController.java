@@ -54,7 +54,7 @@ public class PetController {
 		return mv;
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping("/types")
 	public ModelAndView getAllTypes() {
 		HttpHeaders headers = new HttpHeaders();
@@ -109,17 +109,17 @@ public class PetController {
 
 		return mv;
 	}
-=======
-	   @RequestMapping("/types")
-	    public ModelAndView getAllTypes() {
-	        HttpHeaders headers = new HttpHeaders();
-	        headers.add("Authorization","Bearer " + ps.getToken());    
-	        
-	        String url ="https://api.petfinder.com/v2/types/dog";
-	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
-	        ModelAndView mv = new ModelAndView("types-page");
-	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
-	    }
+
+//	   @RequestMapping("/types")
+//	    public ModelAndView getAllTypesName() {
+//	        HttpHeaders headers = new HttpHeaders();
+//	        headers.add("Authorization","Bearer " + ps.getToken());    
+//	        
+//	        String url ="https://api.petfinder.com/v2/types/dog";
+//	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
+//	        ModelAndView mv = new ModelAndView("types-page");
+//	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
+//	    }
    
 	   //Does nothing
 	   @RequestMapping("/seeMatch")
@@ -128,6 +128,5 @@ public class PetController {
 		   return mv;
 	   }
 	  
->>>>>>> 02b86fcd9ffe01982cd81e30a2cc88bebca6e736
 	
 }
