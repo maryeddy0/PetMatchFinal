@@ -47,7 +47,6 @@ public class PetController {
 		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
 		
 		ModelAndView mv = new ModelAndView("animal-basic-info");
-//		mv.addObject("photo", petResponse.getBody().getAnimal());
 		mv.addObject("basicInfo",petResponse.getBody().getAnimal());
 		mv.addObject("photo", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
 		return mv;

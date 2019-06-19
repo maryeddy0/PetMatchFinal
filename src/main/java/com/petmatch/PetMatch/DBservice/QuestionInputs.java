@@ -1,5 +1,8 @@
 package com.petmatch.PetMatch.DBservice;
 
+
+//Originally created to store user input as an object. then changed mind
+//potentially can be used in the future to store user input into DB 
 public class QuestionInputs {
 	private String space;
 	private String interact;

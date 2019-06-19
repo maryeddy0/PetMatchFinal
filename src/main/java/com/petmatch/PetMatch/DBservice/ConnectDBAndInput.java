@@ -2,9 +2,9 @@ package com.petmatch.PetMatch.DBservice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -36,19 +36,19 @@ public class ConnectDBAndInput {
 		List<String> ls = new ArrayList<>(Arrays.asList(space, interact, cost, hours, noise));
 		return ls;
 	}
-
+	
 	// store the match result to hashMap
-	public Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours,
+	public TreeMap<String, Integer> storeMatchInTreeMap(String space, String interact, String cost, String hours,
 			String noise) {
 
-		Map<String, Integer> matchRate = new HashMap<>();
+		TreeMap<String, Integer> matchRate = new TreeMap<>();
 		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);
-
+		
 		return matchRate;
 	}
 
 	//check match by loop through user inputs and keywords string
-	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
+	private void checkMatch(List<String> ls, TreeMap<String, Integer> matchRate) {
 
 		for (int i = 0; i < ls.size(); i++) {
 			for (int j = 0; j < storeKeywords().size(); j++) {
@@ -69,5 +69,6 @@ public class ConnectDBAndInput {
 		Integer count = map.get(type); // get the value of this certain key.
 		map.put(type, count + 1); // use the same key. but add its value by 1.
 	}
+
 
 }
