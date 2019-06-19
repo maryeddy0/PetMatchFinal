@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-import com.petmatch.PetMatch.DBservice.DataFromDB;
+import com.petmatch.PetMatch.DBservice.ConnectDBAndInput;
 import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
@@ -15,13 +15,12 @@ import com.petmatch.PetMatch.repo.PetsRepo;
 public class DBController {
 	@Value("${pet.key}")
 	String petKey;
-
 	@Autowired
 	PetService ps;
 	@Autowired
 	PetsRepo pr;
 	@Autowired
-	DataFromDB db;
+	ConnectDBAndInput db;
 	
 	RestTemplate rt = new RestTemplate();
 
@@ -31,12 +30,19 @@ public class DBController {
 	public ModelAndView displayTable() {
 		System.out.println(pr);
 		return new ModelAndView("index", "quest", pr.findAll());
-
 	}
 	
-	//doing nothing for now
-	@RequestMapping("/q")
-	public ModelAndView matchAnswers(@RequestParam("range") String budget) {
-		return new ModelAndView("redirect:/");
+	@RequestMapping("/spaces")
+	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
+			@RequestParam(name = "interact", required = false) String interact,
+			@RequestParam(name = "cost", required = false) String cost,
+			@RequestParam(name = "hours", required = false) String hours,
+			@RequestParam(name = "noise", required = false) String noise) {
+		ModelAndView mv = new ModelAndView("answers");
+		mv.addObject("space",db.storeMatchInHashMap(space, interact, cost, hours, noise));
+//		mv.addObject("maxType", db.storeMatchInHashMap(space, interact, cost, hours, noise));
+		return mv;
 	}
+	
+	
 }

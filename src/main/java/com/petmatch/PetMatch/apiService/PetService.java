@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import com.petmatch.PetMatch.DBservice.ConnectDBAndInput;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
 @Component
 public class PetService {
 	@Value("${pet.key}")
 	String petKey;
+
+	
 	
 	
 	RestTemplate rt = new RestTemplate();
@@ -28,6 +32,5 @@ public class PetService {
 		Map<String, String> response = rt.postForObject("https://api.petfinder.com/v2/oauth2/token", params, Map.class);
 		return response.get("access_token");
 	}
-	
 	
 }

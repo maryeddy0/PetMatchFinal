@@ -9,7 +9,7 @@ public class Organization {
 	
 	public Organization() {
 		super();
-		// TODO Auto-generated constructor stub
+		// TODO Auto-gengit erated constructor stub
 	}
 
 	public Organization(Integer id, String name, String phone, String address) {
