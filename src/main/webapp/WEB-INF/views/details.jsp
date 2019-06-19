@@ -33,6 +33,12 @@
 	<h3>Age: ${detailedinfo.age}</h3>
 	<h3>Gender: ${detailedinfo.gender}</h3>
 	<h3>Size: ${detailedinfo.size }</h3>
+	<h5>Organization: ${organization}</h5>
+	<h5>Telephone: ${telephone}</h5>
+	<h5>City: ${city}</h5>
+	<h5>State: ${state}</h5>
+	<h5>Postal Code: ${postcode}</h5>
+	
    
    </section> 
    

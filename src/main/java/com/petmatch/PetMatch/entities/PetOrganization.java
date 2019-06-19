@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PetOrganization {
 	
-	private String organization;
+	private Organization organization;
 	private String address;
 	private ArrayList<Photos> photos;
 	private Links links;
@@ -17,7 +17,7 @@ public class PetOrganization {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PetOrganization(String organization, String address, ArrayList<Photos> photos, Links links) {
+	public PetOrganization(Organization organization, String address, ArrayList<Photos> photos, Links links) {
 		super();
 		this.organization = organization;
 		this.address = address;
@@ -25,11 +25,11 @@ public class PetOrganization {
 		this.links = links;
 	}
 
-	public String getOrganization() {
+	public Organization getOrganization() {
 		return organization;
 	}
 
-	public void setOrganization(String organization) {
+	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
 

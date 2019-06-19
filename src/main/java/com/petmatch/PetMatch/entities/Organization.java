@@ -2,17 +2,18 @@ package com.petmatch.PetMatch.entities;
 // Stassi
 public class Organization {
 	
-	private Integer id;
+	private String id;
 	private String name;
 	private String phone;
-	private String address;
+	private Address address;
 	
 	public Organization() {
 		super();
 		// TODO Auto-gengit erated constructor stub
 	}
 
-	public Organization(Integer id, String name, String phone, String address) {
+	public Organization(String id, String name, String phone, Address address) {
+
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,11 +21,11 @@ public class Organization {
 		this.address = address;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -44,16 +45,17 @@ public class Organization {
 		this.phone = phone;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
 	@Override
 	public String toString() {
+
 		return "Organizations [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + "]";
 	}
 
