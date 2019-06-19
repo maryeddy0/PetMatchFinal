@@ -22,22 +22,6 @@ public class QuestionController {
 		return new ModelAndView("quest");
 	}
 
-	
-
-//	@RequestMapping("/interact")		
-//	public ModelAndView petInteraction(@RequestParam ("interact") String interaction) {
-//		return new ModelAndView("answers", "inter", db.checkMatch(interaction));
-//	}
-//	
-//	@RequestMapping("/cost")		
-//	public ModelAndView petCost(@RequestParam ("cost") String cost) {
-//		return new ModelAndView("answers", "cost", db.checkMatch(cost));
-//	}
-//	
-//	@RequestMapping("/hours")		
-//	public ModelAndView petTimeAvailable(@RequestParam ("hours") String hours) {
-//		return new ModelAndView("answers", "hours", db.checkMatch(hours));
-//	}
 
 
 

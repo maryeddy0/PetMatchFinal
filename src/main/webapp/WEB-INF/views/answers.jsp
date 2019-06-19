@@ -21,14 +21,11 @@
   color: white;
 }
 
-.html {width: 90%; background-color: #4CAF50;}
-.css {width: 80%; background-color: #2196F3;}
-.js {width: 65%; background-color: #f44336;}
-.php {width: 60%; background-color: #808080;}
+.html {width: 80%; background-color: #4CAF50;}
 </style>
 </head>
 <body>
-	<div class="container">
+	<div class="container" >
 		<h1>Matching Rate</h1>
 
 		<c:forEach items="${space}" var="sp">

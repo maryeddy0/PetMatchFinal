@@ -39,6 +39,6 @@ public class DBController {
 			@RequestParam(name = "cost", required = false) String cost,
 			@RequestParam(name = "hours", required = false) String hours,
 			@RequestParam(name = "noise", required = false) String noise) {
-		return new ModelAndView("answers", "space", "x");
+		return new ModelAndView("answers", "space",db.storeMatchInHashMap(space, interact, cost, hours, noise) );
 	}
 }
