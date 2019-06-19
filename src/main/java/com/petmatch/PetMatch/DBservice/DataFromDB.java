@@ -47,13 +47,11 @@ public class DataFromDB {
 		return matchRate;
 	}
 
-	//check match by loop through types, user inputs and keywords string
+	//check match by loop through user inputs and keywords string
 	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
 
-		//Q: should I extract below to 2 more method???? good practice?
 		for (int i = 0; i < ls.size(); i++) {
 			for (int j = 0; j < storeKeywords().size(); j++) {
-//				for (int k = 0; k < storeTypes().size(); k++) {
 					if (storeKeywords().get(j).contains(ls.get(i))) {
 						if (matchRate.containsKey(storeTypes().get(j))) {// if the hashmap has the key/type
 							incrementValue(matchRate, storeTypes().get(j));

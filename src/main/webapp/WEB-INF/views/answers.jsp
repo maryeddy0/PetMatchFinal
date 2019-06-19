@@ -21,7 +21,7 @@
   color: white;
 }
 
-.html {width: 80%; background-color: #4CAF50;}
+<!--.html {width: 80%; background-color: #4CAF50;} -->
 </style>
 </head>
 <body>

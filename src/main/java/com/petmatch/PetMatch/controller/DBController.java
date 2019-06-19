@@ -15,7 +15,6 @@ import com.petmatch.PetMatch.repo.PetsRepo;
 public class DBController {
 	@Value("${pet.key}")
 	String petKey;
-
 	@Autowired
 	PetService ps;
 	@Autowired
