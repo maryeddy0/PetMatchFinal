@@ -9,7 +9,7 @@ import com.petmatch.PetMatch.DBservice.ConnectDBAndInput;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
 @Controller
-public class QuestionController {
+public class TestController {
 
 	@Autowired
 	ConnectDBAndInput db;
@@ -18,10 +18,14 @@ public class QuestionController {
 	PetsRepo pr;
 
 	@RequestMapping("/test")
-	public ModelAndView qtest() {
+	public ModelAndView indexToQuestions() {
 		return new ModelAndView("quest");
 	}
-
+	
+	@RequestMapping("/quest")
+	public ModelAndView questToAnswers() {
+		return new ModelAndView("answers");
+	}
 
 
 
