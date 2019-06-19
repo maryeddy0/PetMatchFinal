@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-import com.petmatch.PetMatch.DBservice.ConnectDBAndInput;
+import com.petmatch.PetMatch.DBservice.DataFromDB;
 import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
@@ -20,9 +20,9 @@ public class DBController {
 	@Autowired
 	PetsRepo pr;
 	@Autowired
-	ConnectDBAndInput db;
+	DataFromDB db;
 	
-	RestTemplate rt = new RestTemplate();
+	RestTemplate rt = new RestTemplate();	
 
 
 	//just testing if JPA gets the data from database.

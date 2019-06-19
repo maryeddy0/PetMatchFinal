@@ -32,9 +32,7 @@ public class PetController {
 		headers.add("Authorization","Bearer " + ps.getToken());		
 
 		ResponseEntity<Pets> petResponse= rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
-		
-		
-		
+	
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("display", petResponse.getBody().getAnimals());
 		return mv;
@@ -87,7 +85,7 @@ public class PetController {
 		return mv;
 	}
 	
-	@RequestMapping("detail")
+	@RequestMapping("/detail")
 	public ModelAndView detailedInfo(@RequestParam("id") Integer animalId ) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
