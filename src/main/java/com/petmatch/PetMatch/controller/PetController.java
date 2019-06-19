@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.petmatch.PetMatch.apiService.PetService;
+import com.petmatch.PetMatch.entities.AnimalType;
 import com.petmatch.PetMatch.entities.Pet;
 import com.petmatch.PetMatch.entities.PetTypes;
 import com.petmatch.PetMatch.entities.Pets;
@@ -48,12 +49,12 @@ public class PetController {
 		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
 		
 		ModelAndView mv = new ModelAndView("animal-basic-info");
-//		mv.addObject("photo", petResponse.getBody().getAnimal());
 		mv.addObject("basicInfo",petResponse.getBody().getAnimal());
 		mv.addObject("photo", petResponse.getBody().getAnimal().getPhotos().get(0).getMedium());
 		return mv;
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/types")
 	public ModelAndView getAllTypes() {
 		HttpHeaders headers = new HttpHeaders();
@@ -108,5 +109,25 @@ public class PetController {
 
 		return mv;
 	}
+=======
+	   @RequestMapping("/types")
+	    public ModelAndView getAllTypes() {
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.add("Authorization","Bearer " + ps.getToken());    
+	        
+	        String url ="https://api.petfinder.com/v2/types/dog";
+	        ResponseEntity<AnimalType> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), AnimalType.class);
+	        ModelAndView mv = new ModelAndView("types-page");
+	        return new ModelAndView("types-page","allTypes", petResponse.getBody().getType().getName());
+	    }
+   
+	   //Does nothing
+	   @RequestMapping("/seeMatch")
+	   public ModelAndView getTypeFromAPI(@RequestParam("type") String type) {
+		   ModelAndView mv = new ModelAndView();
+		   return mv;
+	   }
+	  
+>>>>>>> 02b86fcd9ffe01982cd81e30a2cc88bebca6e736
 	
 }
