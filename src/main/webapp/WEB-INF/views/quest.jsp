@@ -17,40 +17,69 @@ ${test }
 <p>Where do you have space to share with your pet?</p>
 <input type="radio" name="space" value="indoor">Indoor<br>
 <input type="radio" name="space" value="outdoor">Outdoor<br>
+<<<<<<< Updated upstream
 <!-- <input type = "submit" value="Submit">
 </form>
 
 <form action="/interact"> -->
+=======
+<!--  <input type = "submit" value="Submit">-->
+<!-- </form> -->
+
+<!-- <form action="/interact"> -->
+>>>>>>> Stashed changes
 <p>How do you want to interact with your pet?</p>
 <input type="radio" name="interact" value="explore">Explore<br>
 <input type="radio" name="interact" value="admire">Admire<br>
 <input type="radio" name="interact" value="cuddle">Cuddle<br>
+<<<<<<< Updated upstream
 <!-- <input type = "submit" value="Submit">
+=======
+<!--  <input type = "submit" value="Submit">-->
+>>>>>>> Stashed changes
 
-</form>
+<!--</form>  -->
 
+<<<<<<< Updated upstream
 <form action="/cost"> -->
+=======
+<!--  <form action="/cost">-->
+>>>>>>> Stashed changes
 <p>How much can you spend each month?</p>
 <input type="radio" name="cost" value="50">$50<br>
 <input type="radio" name="cost" value="50 - 100">$50-100<br>
 <input type="radio" name="cost" value="200+">$200<br>
+<<<<<<< Updated upstream
 <!-- <input type = "submit" value="Submit">
 </form>
 
 <form action="/hours"> -->
+=======
+<!--  <input type = "submit" value="Submit">-->
+<!--  </form>-->
+
+<!--<form action="/hours">  -->
+>>>>>>> Stashed changes
 <p>How many hours will someone be home a day?</p>
 <input type="radio" name="hours" value="less than 5">Less than 5<br>
 <input type="radio" name="hours" value="less than 8">Less than 8<br>
 <input type="radio" name="hours" value="more than 8">More than 8<br>
+<<<<<<< Updated upstream
 <!-- <input type = "submit" value="Submit">
 </form>
 
 <form action="/noise"> -->
+=======
+<!--  <input type = "submit" value="Submit">-->
+<!--  </form>-->
+
+<!--  <form action="/noise">-->
+>>>>>>> Stashed changes
 <p>What is a noise level you are comfortable with?</p>
 <input type="radio" name="noise" value="loud">Loud<br>
 <input type="radio" name="noise" value="minimal">Minimal<br>
 <input type = "submit" value="Submit">
-</form> 
+</form>
 
 </body>
 </html>

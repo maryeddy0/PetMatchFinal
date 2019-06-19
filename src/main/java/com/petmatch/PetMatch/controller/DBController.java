@@ -33,4 +33,12 @@ public class DBController {
 		return new ModelAndView("index", "quest", pr.findAll());
 	}
 	
+	@RequestMapping("/spaces")
+	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
+			@RequestParam(name = "interact", required = false) String interact,
+			@RequestParam(name = "cost", required = false) String cost,
+			@RequestParam(name = "hours", required = false) String hours,
+			@RequestParam(name = "noise", required = false) String noise) {
+		return new ModelAndView("answers", "space", "x");
+	}
 }

@@ -1,5 +1,7 @@
 package com.petmatch.PetMatch.DBservice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,33 +20,47 @@ public class DataFromDB {
 	PetsRepo pr;
 		
 	//store the types from pets database into a list 
-	public List<String> getTypes(){
+	public List<String> storeTypes(){
 		List<String> petTypeDB = pr.getType();
 		return petTypeDB;
 	} 
 	
 	//store the keywords from pets database into a list
-	public List<String> getKeywords(){
+	public List<String> storeKeywords(){
 		List<String> keywordsList = pr.getKeywords();
 		return keywordsList; 
 	}
 	
 	//check match 	
-	public Map<String, Integer> checkMatch(String str) {
-		Map<String, Integer> matchRate = new HashMap<>(); 
-//		String str = "outdoor";//assuming the input is "outdoor" => just testing
-//		
-		for(int i = 0; i < getKeywords().size(); i++) { //getKeywords() = access the method called getKeywords(), that method return a list.
-			if(getKeywords().get(i).contains(str)) {  //check the index in this keywordsList to see if the input matches any word in the keywords list(look up database)
-				if(matchRate.containsKey(getTypes().get(i))) {// check if the hash map has already have the type listed in
-					incrementValue(matchRate, getTypes().get(i)); // if the hash-map contains the key, just increase it's value by 1. incrementValue() is a method I build below
-				}
-				else{
-					matchRate.put(getTypes().get(i), 1); //if the hash map doesn't contain the key, then it will add this key into hash map and a value 1.
+	public Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours, String time) {
+		
+		Map<String, Integer> matchRate = new HashMap<>();
+		checkMatch(storeInputsIntoAList(space, interact, cost, hours, time), matchRate);
+		
+		return matchRate; 
+	}
+
+	//store user inputs into a List, return the list
+	private List<String> storeInputsIntoAList(String space, String interact, String cost, String hours, String time) {
+		List<String>  ls = new ArrayList<>(Arrays.asList(space, interact, cost, hours, time));
+		return ls;
+	}
+
+	
+	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
+		
+			for(int i = 0; i < storeKeywords().size(); i++) { 
+				
+				if(storeKeywords().get(i).contains("FIX ME")) { 
+					
+					if(matchRate.containsKey(storeTypes().get(i))) {//if the hashmap has the key/type
+						incrementValue(matchRate, storeTypes().get(i)); 
+					}
+					else{
+						matchRate.put(storeTypes().get(i), 1); 
+						}
 				}
 			}
-		}
-		return matchRate;  //after this,  we can compare the match rate(from the value in the hash-map) for each pet type, then continue next step
 	}
 	
 	//if the type is already in the hash-map(in above method tells details), then just increment the its value
@@ -55,5 +71,6 @@ public class DataFromDB {
 		}
 		map.put(k, count + 1); //use the same key. but add its value by 1.
 	}
+	
 	
 }
