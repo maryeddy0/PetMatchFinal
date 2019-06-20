@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.petmatch.PetMatch.repo.PetsRepo;
 
 /*...NOTE...*/
@@ -87,5 +89,7 @@ public class DataFromDB {
 		Integer count = map.get(type); // get the value of this certain key.
 		map.put(type, count + 1); // use the same key. but add its value by 1.
 	}
+	
+	
 
 }

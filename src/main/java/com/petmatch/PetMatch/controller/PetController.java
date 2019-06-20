@@ -24,7 +24,6 @@ public class PetController {
 	PetService ps;
 	
 	RestTemplate rt = new RestTemplate();
-<<<<<<< HEAD
 
 	@RequestMapping("/")
 	public ModelAndView index() {
@@ -51,8 +50,7 @@ public class PetController {
 //		mv.addObject("display", petResponse.getBody().getAnimals());
 //		return mv;
 //	}
-=======
->>>>>>> 4291b447eb0279f2b5f6600d4ec0cbde2ebb005b
+
 	
 	@RequestMapping("send-animalId")
 	public ModelAndView getAnimalInfo(@RequestParam("id") Integer animalId ) {
