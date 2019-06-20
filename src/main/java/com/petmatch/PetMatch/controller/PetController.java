@@ -106,21 +106,17 @@ public class PetController {
 	public ModelAndView detailedInfo(@RequestParam("id") Integer animalId ) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
-
-		String url ="https://api.petfinder.com/v2/animals/18660623";
+		String url ="https://api.petfinder.com/v2/animals/" + animalId;
 		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
-		
 		ModelAndView mv = new ModelAndView("details");
-		
-//		System.out.println("hello flora:" + petResponse.getBody().getAnimal());
-		
-		mv.addObject("detailedinfo",petResponse.getBody().getAnimal().getType());
+				
+		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
+
 		String orgId = petResponse.getBody().getAnimal().getOrganization_id();
 		String url1="https://api.petfinder.com/v2/organizations/" + orgId;
 		
 		ResponseEntity<PetOrganization> orgResponse= rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers), PetOrganization.class);
-//		System.out.println("Name: " + orgResponse.getBody().getOrganization().getName());
-//		System.out.println("Body: " + orgResponse.getBody());
+		System.out.println("Name: " + orgResponse.getBody().getOrganization().getName());
 		
 		mv.addObject("organization", orgResponse.getBody().getOrganization().getName());
 		mv.addObject("telephone", orgResponse.getBody().getOrganization().getPhone());
