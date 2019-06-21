@@ -10,8 +10,6 @@
 </head>
 <body>
 
-
-
 	<form action="Typeselected">
 		<c:forEach items="${allTypes}" var="at">
 			<c:out value="${at.name}"></c:out><br/>

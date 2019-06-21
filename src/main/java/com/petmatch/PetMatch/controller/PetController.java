@@ -84,7 +84,11 @@ public class PetController {
 	@RequestMapping("/selected")
 	public ModelAndView selectedPets(@RequestParam("type") String type) {
 		if(type.equalsIgnoreCase("fish")) {
-			type="Scales, Fins & Other";
+			type="scales-fins-other";
+		}else if(type.equalsIgnoreCase("scale")) {
+			type="scales-fins-other";
+		}else if(type.equalsIgnoreCase("smallfurry")) {
+			type="small-furry";
 		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
@@ -107,16 +111,17 @@ public class PetController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization","Bearer " + ps.getToken());	
 		String url ="https://api.petfinder.com/v2/animals/" + animalId;
-		ResponseEntity<Pet> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
+		
+		ResponseEntity<Pet> petResponse = rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pet.class);
 		ModelAndView mv = new ModelAndView("details");
 				
 		mv.addObject("detailedinfo",petResponse.getBody().getAnimal());
-
+		System.out.println(petResponse.getBody().getAnimal());
 		String orgId = petResponse.getBody().getAnimal().getOrganization_id();
 		String url1="https://api.petfinder.com/v2/organizations/" + orgId;
 		
 		ResponseEntity<PetOrganization> orgResponse= rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers), PetOrganization.class);
-		System.out.println("Name: " + orgResponse.getBody().getOrganization().getName());
+//		System.out.println("Name: " + orgResponse.getBody().getOrganization().getName());
 		
 		mv.addObject("organization", orgResponse.getBody().getOrganization().getName());
 		mv.addObject("telephone", orgResponse.getBody().getOrganization().getPhone());

@@ -17,6 +17,6 @@
 		<input type="submit" value="submit"> 
 	</form> -->
 	
-	 <a href= "/firstPage">Start the Test!</a>
+	 <a href= "/quiz">Start the Test!</a>
 </body>
 </html>

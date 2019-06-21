@@ -32,7 +32,7 @@ public class DBController {
 		return new ModelAndView("index", "quest", pr.findAll());
 	}
 	
-	@RequestMapping("/spaces")
+	@RequestMapping("/matchResults")
 	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
 			@RequestParam(name = "interact", required = false) String interact,
 			@RequestParam(name = "cost", required = false) String cost,
@@ -44,7 +44,7 @@ public class DBController {
 		return mv;
 	}
 	
-	@RequestMapping("/firstPage")
+	@RequestMapping("/quiz")
 	public ModelAndView indexToQuestions() {
 		return new ModelAndView("quest");
 	}

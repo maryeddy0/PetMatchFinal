@@ -20,7 +20,7 @@ function validateForm() {
 <body>
 <h1>Test Questions</h1>
 
-<form action="/spaces">
+<form action="/matchResults">
 <p>Where do you have space to share with your pet?</p>
 <input type="radio" name="space" value="indoor">Indoor<br>
 <input type="radio" name="space" value="outdoor">Outdoor<br>
