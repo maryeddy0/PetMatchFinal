@@ -19,9 +19,9 @@
 		<input type="submit" value="submit"> 
 	</form> -->
 	
-<<<<<<< Updated upstream
+
 	 <a href= "/quiz">Start the Test!</a>
-=======
+
 	 <h3><a href= "/firstPage">Start the Test!</a></h3>
 	 
 	 
@@ -39,6 +39,6 @@
    </select>
    </form>
   
->>>>>>> Stashed changes
+
 </body>
 </html>
