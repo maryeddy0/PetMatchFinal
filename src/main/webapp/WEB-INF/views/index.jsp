@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>PetMatchApp</title>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp" crossorigin="anonymous">
+
 </head>
 <body>
 	
@@ -17,6 +19,26 @@
 		<input type="submit" value="submit"> 
 	</form> -->
 	
+<<<<<<< Updated upstream
 	 <a href= "/quiz">Start the Test!</a>
+=======
+	 <h3><a href= "/firstPage">Start the Test!</a></h3>
+	 
+	 
+  <h2>If you want to choose an specific type of pet click below</h2>
+  <form action="/selected">
+	 <select name="type">
+  	  <option value="horse">Horse</option>
+  	  <option value="scales-fins-other">Scales</option>
+      <option value="dog">Dog</option>
+  	  <option value="bird">Bird</option>
+  	  <option value="cat">Cat</option>
+  	  <option value="small-furry">Small & Furry</option>
+  	  <option value="fish">Fish</option>
+  	  <input type="submit" value="Submit">
+   </select>
+   </form>
+  
+>>>>>>> Stashed changes
 </body>
 </html>
