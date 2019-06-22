@@ -18,9 +18,6 @@
 		<input type="text" name="name">
 		<input type="submit" value="submit"> 
 	</form> -->
-	
-
-	 <a href= "/quiz">Start the Test!</a>
 
 	 <h3><a href= "/firstPage">Start the Test!</a></h3>
 	 
