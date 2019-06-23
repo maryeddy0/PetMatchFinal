@@ -58,7 +58,7 @@ public class DataFromDB {
 	// sort map value : needs to do more research about this one
 	private Map<String, Integer> valueSortHashMapValue(Map<String, Integer> matchRate) {
 		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(matchRate.entrySet());
-		Collections.sort(list, new MyComparator()); // check <ComparetorForSort> Class
+		Collections.sort(list, new MyComparator().reversed()); // check <ComparetorForSort> Class
 
 		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
 		for (Entry<String, Integer> entry : list) {
@@ -76,7 +76,7 @@ public class DataFromDB {
 					if (matchRate.containsKey(storeTypes().get(j))) {// if the hash-map has the key/type
 						incrementValue(matchRate, storeTypes().get(j));//only increase its value
 					} else {
-						matchRate.put(storeTypes().get(j), 1);
+						matchRate.put(storeTypes().get(j), 20);
 					}
 				}
 			}
@@ -87,7 +87,7 @@ public class DataFromDB {
 	// just increment the its value
 	public void incrementValue(Map<String, Integer> map, String type) { 
 		Integer count = map.get(type); // get the value of this certain key.
-		map.put(type, count + 1); // use the same key. but add its value by 1.
+		map.put(type, count + 20); // use the same key. but add its value by 1.
 	}
 	
 	

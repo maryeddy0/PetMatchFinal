@@ -10,19 +10,18 @@ public class PetOrganization {
 	private Organization organization;
 	private String address;
 	private ArrayList<Photos> photos;
-	private Links links;
+	
 	
 	public PetOrganization() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public PetOrganization(Organization organization, String address, ArrayList<Photos> photos, Links links) {
+	
+	public PetOrganization(Organization organization, String address, ArrayList<Photos> photos) {
 		super();
 		this.organization = organization;
 		this.address = address;
 		this.photos = photos;
-		this.links = links;
 	}
 
 	public Organization getOrganization() {
@@ -48,17 +47,5 @@ public class PetOrganization {
 	public void setPhotos(ArrayList<Photos> photos) {
 		this.photos = photos;
 	}
-
-	public Links getLinks() {
-		return links;
-	}
-
-	public void setLinks(Links links) {
-		this.links = links;
-	}
-	
-	
-	
-	
 
 }

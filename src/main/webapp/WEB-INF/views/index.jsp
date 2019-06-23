@@ -13,18 +13,24 @@
 	
 	<h1>Welcome to Friends for Life</h1>
 	
-	<h2>Click button to find your perfect pet match!</h2>
+	<h3>Click button to find your perfect pet match!</h3>
 <!-- <form action="">
 		<input type="text" name="name">
 		<input type="submit" value="submit"> 
 	</form> -->
+<<<<<<< HEAD
+=======
+	
+
+	 <a href= "/quiz">Start the Test!</a> <br />
+>>>>>>> origin
 
 	 <h3><a href= "/firstPage">Start the Test!</a></h3>
 	 
 	 
-  <h2>If you want to choose an specific type of pet click below</h2>
+  <h3>If you want to choose an specific type of pet click below</h3>
   <form action="/selected">
-	 <select name="type">
+	 <select class="btn btn-info" name="type">
   	  <option value="horse">Horse</option>
   	  <option value="scales-fins-other">Scales</option>
       <option value="dog">Dog</option>
@@ -32,8 +38,9 @@
   	  <option value="cat">Cat</option>
   	  <option value="small-furry">Small & Furry</option>
   	  <option value="fish">Fish</option>
-  	  <input type="submit" value="Submit">
    </select>
+     <input type="submit" class="btn btn-light" value="Submit">
+   
    </form>
   
 

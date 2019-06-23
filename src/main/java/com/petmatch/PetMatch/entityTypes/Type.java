@@ -1,16 +1,12 @@
 package com.petmatch.PetMatch.entityTypes;
 
-public class Types {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Type {
 	private String name;
-	
-	
-	public Types(String name) {
-		super();
-		this.name = name;
-	}
 
-	public Types() {
+	public Type() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -22,12 +18,5 @@ public class Types {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	@Override
-	public String toString() {
-		return "Types [name=" + name + "]";
-	}
-
-	
 	
 }

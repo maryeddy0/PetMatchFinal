@@ -1,4 +1,6 @@
 package com.petmatch.PetMatch.entities;
+
+
 // Stassi
 public class Organization {
 	
@@ -6,6 +8,8 @@ public class Organization {
 	private String name;
 	private String phone;
 	private Address address;
+	private String email;
+//	private Links links;
 	
 	public Organization() {
 		super();
@@ -19,6 +23,14 @@ public class Organization {
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getId() {
@@ -52,6 +64,14 @@ public class Organization {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+//	public Links getLinks() {
+//		return links;
+//	}
+//
+//	public void setLinks(Links links) {
+//		this.links = links;
+//	}
 
 	@Override
 	public String toString() {
