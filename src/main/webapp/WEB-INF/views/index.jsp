@@ -18,12 +18,10 @@
 		<input type="text" name="name">
 		<input type="submit" value="submit"> 
 	</form> -->
-<<<<<<< HEAD
-=======
-	
+
 
 	 <a href= "/quiz">Start the Test!</a> <br />
->>>>>>> origin
+
 
 	 <h3><a href= "/firstPage">Start the Test!</a></h3>
 	 
@@ -42,7 +40,7 @@
      <input type="submit" class="btn btn-light" value="Submit">
    
    </form>
-  
+  ${pets }
 
 </body>
 </html>

@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.petmatch.PetMatch.DBservice.DataFromDB;
 import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.repo.PetsRepo;
+import com.petmatch.PetMatch.repo.PopularpetsRepo;
 
 @Controller
 public class DBController {
@@ -20,7 +22,10 @@ public class DBController {
 	@Autowired
 	PetsRepo pr;
 	@Autowired
+	PopularpetsRepo ppr;
+	@Autowired
 	DataFromDB db;
+	
 	
 	RestTemplate rt = new RestTemplate();	
 
@@ -49,12 +54,11 @@ public class DBController {
 		return new ModelAndView("quest");
 	}
 
-	
-//	@RequestMapping("/quest")
-//	public ModelAndView questToAnswers() {
-//		return new ModelAndView("answers");
-//	}
+	@RequestMapping("/pop-pets")
+	public ModelAndView showPets() {
+		System.out.println(ppr);
+		return new ModelAndView("index", "pets", ppr.findAll());
+	}
 
-	
 	
 }
