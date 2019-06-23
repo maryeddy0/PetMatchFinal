@@ -52,7 +52,7 @@ public class PetController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + ps.getToken());
 
-		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&size=medium" + "&limit=10";
+		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&size=medium" + "&limit=5";
 		ResponseEntity<Pets> petResponse = rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers),
 				Pets.class);
 
