@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+.container h1{
+	text-align: center;
+	font-size: 50px;
+	text-transform: uppercase;
+	margin-bottom: 10%;
+}
+
+.container h4{
+	font-size: 150%;
+	color:black;
+	text-transform: capitalize;
+}
+.progress{
+	height: 40px;
+}

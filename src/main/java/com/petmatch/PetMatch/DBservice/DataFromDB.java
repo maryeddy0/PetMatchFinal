@@ -70,7 +70,7 @@ public class DataFromDB {
 
 	// check match by loop through user inputs and keywords string
 	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
-		for (int i = 0; i < ls.size(); i++) {
+		for (int i = 0; i < ls.size(); i++) { //this ls is the user input/keywords list
 			for (int j = 0; j < storeKeywords().size(); j++) {
 				if (storeKeywords().get(j).contains(ls.get(i))) {//keywords column contains user input
 					if (matchRate.containsKey(storeTypes().get(j))) {// if the hash-map has the key/type

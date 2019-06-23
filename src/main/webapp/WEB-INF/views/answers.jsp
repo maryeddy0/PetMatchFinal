@@ -7,45 +7,40 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<style>
-* {
-	box-sizing: border-box
-}
 
-.container {
-	width: 100%;
-	background-color: #ddd;
-}
-
-.skills {
-	text-align: right;
-	padding-right: 20px;
-	line-height: 40px;
-	color: white;
-}
-
-<!--
-.html {
-	width: 80%;
-	background-color: #4CAF50;
-}
--->
-</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-		<div class="container">
-			<h1>Matching Rate</h1>
-			<c:forEach items="${space}" var="sp">
-				<p>
-					See Match(click): <a href="selected?type=${sp.key}"><strong>${sp.key}</strong></a><br/>
-					<!-- go to petController, type is sending over... -->
-				</p>
-				<div class="container">
-					<div class="skills html">${sp.value}%</div>
-				</div>
-			</c:forEach>
-		</div>
-	
+	<div class="container">
+		<h1>Your Match Graph</h1>
+		<c:forEach items="${space}" var="sp">
+			<c:choose>  <!-- change "smallfurry" type to "Small & Furry" -->
+				<c:when test="${sp.key =='smallfurry'}">
+					<h4>
+						<a href="selected?type=${sp.key}">Small & Furry</a>
+					</h4>
+				</c:when>
+				<c:otherwise>
+					<h4>
+						<a href="selected?type=${sp.key}"> ${sp.key}</a>
+					</h4>
+				</c:otherwise>
+			</c:choose>
+			<div class="progress">
+				<div class="progress-bar progress-bar-success"
+					aria-valuenow="${sp.value}" aria-valuemin="0" aria-valuemax="100"
+					style="width:${sp.value}%">${sp.value}%</div>
+			</div>
+			<!-- go to petController, type is sending over... -->
+		</c:forEach>
+	</div>
+
 </body>
 </html>
