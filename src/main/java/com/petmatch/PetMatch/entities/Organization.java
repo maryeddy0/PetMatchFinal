@@ -2,6 +2,8 @@ package com.petmatch.PetMatch.entities;
 
 
 // Stassi
+/* API Endpoint: GET https://api.petfinder.com/v2/organizations */
+
 public class Organization {
 	
 	private String id;

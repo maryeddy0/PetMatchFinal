@@ -15,6 +15,8 @@ import com.petmatch.PetMatch.entities.Pet;
 import com.petmatch.PetMatch.entities.Pets;
 import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 
+/*this class contains methods that help manipulating data that are relevant to petAPI */
+
 @Component
 public class PetService {
 	@Value("${pet.key}")
@@ -84,7 +86,7 @@ public class PetService {
 		// check the photo from API is not empty
 		//there is definitely a better way to do the same thing here, I just don't know yet.
 		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
-			ssp.setPhotos("https://www.capelmanorcollege.co.uk/wp-content/uploads/2015/12/image-not-yet-available.jpg");
+			ssp.setPhotos("https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
 			ssp = new StoreSelectedPets(ssp.getPhotos(), 
 										petIDResponse.getBody().getAnimal().getName(),
 										petIDResponse.getBody().getAnimal().getAge(),

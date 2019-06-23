@@ -3,6 +3,7 @@ package com.petmatch.PetMatch.entities;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+/* API Endpoint: GET https://api.petfinder.com/v2/organizations */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PetOrganization {

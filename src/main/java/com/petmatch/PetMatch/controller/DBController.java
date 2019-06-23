@@ -1,5 +1,4 @@
 package com.petmatch.PetMatch.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -28,15 +27,11 @@ public class DBController {
 	
 	
 	RestTemplate rt = new RestTemplate();	
-
-
-	//just testing if JPA gets the data from database.
-	@RequestMapping("/table")
-	public ModelAndView displayTable() {
-		System.out.println(pr);
-		return new ModelAndView("index", "quest", pr.findAll());
-	}
 	
+	//URL: matchResults
+	//params: all user question inputs
+	//method call: storeMatchInHashMap
+	//return the Hash Map that contains the key(the pet type) and corresponding matching rate 
 	@RequestMapping("/matchResults")
 	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
 			@RequestParam(name = "interact", required = false) String interact,
@@ -45,14 +40,16 @@ public class DBController {
 			@RequestParam(name = "noise", required = false) String noise) {
 		ModelAndView mv = new ModelAndView("answers");
 		mv.addObject("space",db.storeMatchInHashMap(space, interact, cost, hours, noise));
-//		mv.addObject("maxType", db.storeMatchInHashMap(space, interact, cost, hours, noise));
 		return mv;
 	}
 	
+	//URL: quiz
+	//this method simplely just links the first home page to the question page
 	@RequestMapping("/quiz")
 	public ModelAndView indexToQuestions() {
 		return new ModelAndView("quest");
 	}
+
 
 	@RequestMapping("/pop-pets")
 	public ModelAndView showPets() {
@@ -60,5 +57,13 @@ public class DBController {
 		return new ModelAndView("index", "pets", ppr.findAll());
 	}
 
+
 	
+
+//	//just testing if JPA gets the data from database.
+//	@RequestMapping("/table")
+//	public ModelAndView displayTable() {
+//		System.out.println(pr);
+//		return new ModelAndView("index", "quest", pr.findAll());
+//	}
 }
