@@ -2,7 +2,7 @@ package com.petmatch.PetMatch.entityTypes;
 
 import java.sql.Types;
 import java.util.ArrayList;
-
+/* this project did not use those properties, but it exists for API testing */
 /*it's becoz using a seperated link, so I try to put in different package, especially the entities package have too many pojos already.*/
 public class AminalTypes {
 

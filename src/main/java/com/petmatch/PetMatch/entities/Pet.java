@@ -1,5 +1,6 @@
 package com.petmatch.PetMatch.entities;
 
+/*API endpoint:  GET https://api.petfinder.com/v2/animals/{id}*/
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,6 +1,7 @@
 //Get Animal Endpoint >Pets>Animals
 
 package com.petmatch.PetMatch.entities;
+/*API endpoint:  GET https://api.petfinder.com/v2/animals*/
 
 
 import java.util.ArrayList;

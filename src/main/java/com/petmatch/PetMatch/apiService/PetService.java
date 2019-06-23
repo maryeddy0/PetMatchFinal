@@ -15,6 +15,8 @@ import com.petmatch.PetMatch.entities.Pet;
 import com.petmatch.PetMatch.entities.Pets;
 import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 
+/*this class contains methods that help manipulating data that are relevant to petAPI */
+
 @Component
 public class PetService {
 	@Value("${pet.key}")

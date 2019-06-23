@@ -1,6 +1,6 @@
 package com.petmatch.PetMatch.entityTypes;
 
-//create this class to hold the basic information as an object in order to display on the page.
+//create this class to hold the basic information as an object in order to display on the page as an arrayList
 public class StoreSelectedPets {
 	private String photos;
 	private String name;

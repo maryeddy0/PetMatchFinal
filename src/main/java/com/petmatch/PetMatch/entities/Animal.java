@@ -1,11 +1,9 @@
 package com.petmatch.PetMatch.entities;
-
-
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
+/*API endpoint:  GET https://api.petfinder.com/v2/animals/{id}*/
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Animal {
 	private String type; //might use it for types, not sure yet

@@ -24,7 +24,7 @@
 
 	 <h3><a href= "/firstPage">Start the Test!</a></h3>
 	 
-	 
+	
   <h3>If you want to choose an specific type of pet click below</h3>
   <form action="/selected">
 	 <select class="btn btn-info" name="type">

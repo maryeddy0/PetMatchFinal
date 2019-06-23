@@ -1,7 +1,5 @@
-//Get Animal Endpoint >Pets>Animals
+//Get Animal Endpoint > Pets > Animals
 package com.petmatch.PetMatch.entities;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
