@@ -79,23 +79,24 @@ public class PetService {
 
 	// save each pet basic info that requested from API to "StoreSelectedPets"
 	// object class
-	// return the object reference variable
+	// return the class reference variable
 	public StoreSelectedPets createPetBasicInfo(ResponseEntity<Pet> petIDResponse, StoreSelectedPets ssp) {
 		// check the photo from API is not empty
+		//there is definitely a better way to do the same thing here, I just don't know yet.
 		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
 			ssp.setPhotos("https://www.capelmanorcollege.co.uk/wp-content/uploads/2015/12/image-not-yet-available.jpg");
 			ssp = new StoreSelectedPets(ssp.getPhotos(), 
 										petIDResponse.getBody().getAnimal().getName(),
-										petIDResponse.getBody().getAnimal().getGender(),
 										petIDResponse.getBody().getAnimal().getAge(),
+										petIDResponse.getBody().getAnimal().getGender(),
 										petIDResponse.getBody().getAnimal().getDescription(),
 										petIDResponse.getBody().getAnimal().getOrganization_id()
 					);
 		} else {
 			ssp = new StoreSelectedPets(petIDResponse.getBody().getAnimal().getPhotos().get(0).getMedium(),
 										petIDResponse.getBody().getAnimal().getName(),
-										petIDResponse.getBody().getAnimal().getGender(),
 										petIDResponse.getBody().getAnimal().getAge(), 
+										petIDResponse.getBody().getAnimal().getGender(),
 										petIDResponse.getBody().getAnimal().getDescription(),
 										petIDResponse.getBody().getAnimal().getOrganization_id());
 		}
