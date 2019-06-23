@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Links {
 	private Self self;
 	
-
 	public Links() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Links(Self self) {
-		super();
-		this.self = self;
 	}
 
 	public Self getSelf() {
@@ -24,7 +18,5 @@ public class Links {
 	public void setSelf(Self self) {
 		this.self = self;
 	}
-	
-	
 	
 }

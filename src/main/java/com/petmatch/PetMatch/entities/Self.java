@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Self {
 	private String href;
-
-	public Self() {
+	
+	public Self(String href) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.href = href;
 	}
 
 	public String getHref() {
@@ -18,6 +18,5 @@ public class Self {
 	public void setHref(String href) {
 		this.href = href;
 	}
-	
-	
+ 
 }

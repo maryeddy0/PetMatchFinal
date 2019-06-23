@@ -38,7 +38,7 @@
 			<h1>Matching Rate</h1>
 			<c:forEach items="${space}" var="sp">
 				<p>
-					See Match(click): <a href="selected?type=${sp.key}"><strong>${sp.key}</strong></a>
+					See Match(click): <a href="selected?type=${sp.key}"><strong>${sp.key}</strong></a><br/>
 					<!-- go to petController, type is sending over... -->
 				</p>
 				<div class="container">
