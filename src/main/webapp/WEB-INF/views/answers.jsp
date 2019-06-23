@@ -21,7 +21,8 @@
 	<div class="container">
 		<h1>Your Match Graph</h1>
 		<c:forEach items="${space}" var="sp">
-			<c:choose>  <!-- change "smallfurry" type to "Small & Furry" -->
+	 <!-- change "smallfurry" type to "Small & Furry" -->
+	 <c:choose> 
 				<c:when test="${sp.key =='smallfurry'}">
 					<h4>
 						<a href="selected?type=${sp.key}">Small & Furry</a>

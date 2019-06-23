@@ -8,13 +8,7 @@
 <meta charset="UTF-8">
 <title>Question test page</title>
 <script>
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == null || x == "") {
-        alert("Please make sure all questions are filled out");
-        return false;
-    }
-}
+
 </script>
 </head>
 <body>
