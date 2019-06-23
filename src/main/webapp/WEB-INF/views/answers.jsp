@@ -19,7 +19,7 @@
 <body>
 
 	<div class="container">
-		<h1>Your Match Mate</h1>
+		<h1>Your Match Mates</h1>
 		<c:forEach items="${space}" var="sp">
 			<!-- change "smallfurry" type to "Small & Furry" -->
 			<c:choose>
