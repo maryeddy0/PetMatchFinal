@@ -42,7 +42,7 @@
 					<!-- go to petController, type is sending over... -->
 				</p>
 				<div class="container">
-					<div class="skills html">${sp.value}</div>
+					<div class="skills html">${sp.value}%</div>
 				</div>
 			</c:forEach>
 		</div>
