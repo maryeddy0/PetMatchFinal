@@ -12,6 +12,10 @@
 	color:black;
 	text-transform: capitalize;
 }
+.container img{
+	 max-width: 30%;
+	 max-height: 30%; 
+}
 .progress{
 	height: 40px;
 }

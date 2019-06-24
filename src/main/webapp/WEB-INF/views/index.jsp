@@ -54,22 +54,10 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/">Home</a></li>
-				<li><a href="/login">Login</a></li> <!-- No login page yet -->
-			</ul>
-<!-- 			<h3>If you want to choose an specific type of pet click below</h3>
- -->			<form action="/selected" class="navbar-form navbar-left">
-				<select class="btn btn-default" name="type" class="form-control">
-					<option value="dog">Dog</option>
-					<option value="bird">Bird</option>
-					<option value="cat">Cat</option>
-					<option value="small-furry">Small & Furry</option>
-					<option value="fish">Fish</option>
-					<option value="scales-fins-other">Scales</option>
-					<option value="horse">Horse</option>
-				</select> <input type="submit" class="btn btn-primary" value="Search">
+				<li><a href="/login">Login</a></li>
+				<!-- No login page yet -->
 
-			</form>
-			<!-- 	<form class="navbar-form navbar-left" action="/action_page.php">
+				<!-- 	<form class="navbar-form navbar-left" action="/action_page.php">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search"
 						name="search">
@@ -78,13 +66,32 @@
 			</form> -->
 		</div>
 	</nav>
-	<div class ="container">
-	<h1>Welcome to Friends for Life</h1>
-
 	
-	<h3>Click below to find your match:<br></h3><h4><a href="/quiz">Start the Test!</a></h4>
-	<br />
-<!-- 		<a href="/firstPage">Start the Test!</a>
- -->	</div>
+	
+	<div class="container">
+		<h1>Welcome to Friends for Life</h1>
+
+
+		<h3>
+			Click below to find your match:<br>
+		</h3>
+		<h4>
+			<a href="/quiz">Start the Test!</a>
+		</h4>
+		<br />
+		<h3>If you want to choose an specific type of pet click below</h3>
+		<form action="/selected" class="navbar-form navbar-left">
+			<select class="btn btn-default" name="type" class="form-control">
+				<option value="dog">Dog</option>
+				<option value="bird">Bird</option>
+				<option value="cat">Cat</option>
+				<option value="small-furry">Small & Furry</option>
+				<option value="fish">Fish</option>
+				<option value="scales-fins-other">Scales</option>
+				<option value="horse">Horse</option>
+			</select> <input type="submit" class="btn btn-primary" value="Search">
+
+		</form>
+	</div>
 </body>
 </html>
