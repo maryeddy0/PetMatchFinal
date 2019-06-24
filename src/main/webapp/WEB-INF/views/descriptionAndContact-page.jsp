@@ -11,10 +11,11 @@
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class="container">
-		<img height="200px" width="200px" src="${basic.photos}" /><br />
+		<img src="${basic.photos}" /><br />
 		Name: ${basic.name} <br /> Description: ${basic.description}<br />
 	</div>
 	<div class="container">
