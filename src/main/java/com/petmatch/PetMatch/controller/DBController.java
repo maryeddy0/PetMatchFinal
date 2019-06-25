@@ -43,6 +43,7 @@ public class DBController {
 			@RequestParam(name = "hours", required = false) String hours,
 			@RequestParam(name = "mess", required = false) String mess) {
 		ModelAndView mv = new ModelAndView("answers");
+		System.out.println("space: " + space);
 		mv.addObject("space",db.storeMatchInHashMap(space, size, interact, cost, hours, mess));
 		return mv;
 	}
