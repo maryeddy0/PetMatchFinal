@@ -86,7 +86,7 @@
 				<option value="bird">Bird</option>
 				<option value="cat">Cat</option>
 				<option value="small-furry">Small & Furry</option>
-				<option value="scales-fins-other">Scales</option>
+				<option value="scales-fins-other">Reptile</option>
 				<option value="horse">Horse</option>
 			</select> <input type="submit" class="btn btn-primary" value="Search">
 

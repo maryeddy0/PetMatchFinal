@@ -28,7 +28,7 @@
 							<!-- URL link: moreDetail -->
 							<a
 								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}"><button
-									class="button">More Description</button></a><br />
+									class="button">More Information</button></a><br />
 						</div>
 					</div>
 				</div>

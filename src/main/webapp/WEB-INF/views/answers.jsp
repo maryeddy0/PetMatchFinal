@@ -23,16 +23,17 @@
 		<c:forEach items="${space}" var="sp">
 			<!-- change "smallfurry" type to "Small & Furry" -->
 			<c:choose>
-				<c:when test="${sp.key =='smallfurry'}">
+			<c:when test="${sp.key =='smallfurry'}">
 					<h4>
 						<a href="selected?type=${sp.key}">Small & Furry</a>
 					</h4>
-				</c:when>
+			</c:when>
 				<c:otherwise>
 					<h4>
 						<a href="selected?type=${sp.key}"> ${sp.key}</a>
 					</h4>
 				</c:otherwise>
+			   
 			</c:choose>
 			<div class="progress">
 				<div class="progress-bar progress-bar-success"
