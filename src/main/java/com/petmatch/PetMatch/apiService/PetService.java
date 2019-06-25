@@ -40,13 +40,12 @@ public class PetService {
 	// get Type from user, and match the type with API type name
 	// return the sepcific type
 	public String matchTheTypeNameWithAPI(String type) {
-<<<<<<< Updated upstream
+
 		 if (type.equalsIgnoreCase("reptile")) {
-=======
-		if (type.equalsIgnoreCase("fish")) {
+
 			type = "scales-fins-other";
 		} else if (type.equalsIgnoreCase("scales")) {
->>>>>>> Stashed changes
+
 			type = "scales-fins-other";
 		} else if (type.equalsIgnoreCase("smallfurry")) {
 			type = "small-furry";
