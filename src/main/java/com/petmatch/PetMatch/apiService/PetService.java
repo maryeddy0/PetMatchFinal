@@ -40,17 +40,15 @@ public class PetService {
 	// get Type from user, and match the type with API type name
 	// return the sepcific type
 	public String matchTheTypeNameWithAPI(String type) {
-<<<<<<< Updated upstream
 		 if (type.equalsIgnoreCase("reptile")) {
-=======
-		if (type.equalsIgnoreCase("fish")) {
-			type = "scales-fins-other";
-		} else if (type.equalsIgnoreCase("scales")) {
->>>>>>> Stashed changes
-			type = "scales-fins-other";
-		} else if (type.equalsIgnoreCase("smallfurry")) {
-			type = "small-furry";
-		}
+			 if (type.equalsIgnoreCase("fish")) {
+				 type = "scales-fins-other";
+			 } else if (type.equalsIgnoreCase("scales")) {
+				 type = "scales-fins-other";
+			 } else if (type.equalsIgnoreCase("smallfurry")) {
+				 type = "small-furry";
+			 }
+		 }
 		return type;
 	}
 
@@ -73,7 +71,6 @@ public class PetService {
 		}
 	}
 
-	
 	public void addPetToArrayList(ArrayList<StoreSelectedPets> petsInfo, Integer petID) {
 		ResponseEntity<Pet> petIDResponse = getResponseBySendingPetID(petID);
 		StoreSelectedPets ssp = new StoreSelectedPets();
@@ -103,7 +100,8 @@ public class PetService {
 		// there is definitely a better way to do the same thing here, I just don't know
 		// yet.
 		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
-			ssp.setPhotos("https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
+			ssp.setPhotos(
+					"https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
 			ssp = new StoreSelectedPets(ssp.getPhotos(), petIDResponse.getBody().getAnimal().getName(),
 					petIDResponse.getBody().getAnimal().getAge(), petIDResponse.getBody().getAnimal().getGender(),
 					petIDResponse.getBody().getAnimal().getDescription(),

@@ -36,10 +36,10 @@
 		<br />
 	</div>
 	<!-- Testing view history, hasn't finish yet -->
-<%-- 	<div class="container">
+	<div class="container">
 		<img height="100px" width="auto" src="${viewedPetBasic.photos}"/><br>
 		Name: ${viewedPetBasic.name}
 		More Info: <!-- redirect back to description and contact-page when user clicks-->
-	</div --%>>
+	</div >
 </body>
 </html>

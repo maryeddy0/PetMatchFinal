@@ -95,6 +95,7 @@ public class PetController {
 				}
 			}
 		}
+		
 		/*********************************/
 		
 		mv.addObject("basic", s);
