@@ -26,6 +26,22 @@
 			</ol>
 		</div>
 	</form>
+	
+		<form action="/detail">
+		<div class="container">
+
+			<h1>Pets selected for you</h1>
+			<h2>${type}</h2>
+			<ol>
+				<c:forEach items="${display}" var="b">
+				 <a href = "<c:url value = "detail?id=${b.id}"/>"><img src="${photo}"></a>
+				</c:forEach>
+			</ol>
+		</div>
+	</form>
+	
+	
+	
 <%-- 	<form action="types">
 		<c:forEach items="${allTypes}" var="a">
 			${a.name}

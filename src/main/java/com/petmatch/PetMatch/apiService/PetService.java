@@ -49,6 +49,16 @@ public class PetService {
 				 type = "small-furry";
 			 }
 		 }
+
+		 if (type.equalsIgnoreCase("reptile")) {
+
+			type = "scales-fins-other";
+		} else if (type.equalsIgnoreCase("scales")) {
+
+			type = "scales-fins-other";
+		} else if (type.equalsIgnoreCase("smallfurry")) {
+			type = "small-furry";
+		}
 		return type;
 	}
 

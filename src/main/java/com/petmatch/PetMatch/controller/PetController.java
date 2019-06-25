@@ -25,7 +25,7 @@ import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 public class PetController {
 	@Autowired
 	PetService ps;
-	
+
 	RestTemplate rt = new RestTemplate();
 	Stack<Integer> stack = new Stack<>();
 	
@@ -192,5 +192,6 @@ public class PetController {
 //	}
 
 
-	
+
 }
+
