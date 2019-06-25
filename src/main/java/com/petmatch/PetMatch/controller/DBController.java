@@ -1,4 +1,7 @@
 package com.petmatch.PetMatch.controller;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -9,66 +12,66 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.petmatch.PetMatch.DBservice.DataFromDB;
 import com.petmatch.PetMatch.apiService.PetService;
+import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.PetsRepo;
-import com.petmatch.PetMatch.repo.PopularpetsRepo;
+import com.petmatch.PetMatch.repo.UserRepo;
 
 @Controller
 public class DBController {
 	@Value("${pet.key}")
 	String petKey;
-	
 	@Autowired
 	PetService ps;
-	
 	@Autowired
 	PetsRepo pr;
-	
-	@Autowired
-	PopularpetsRepo ppr;
 	@Autowired
 	DataFromDB db;
-	
-	
-	RestTemplate rt = new RestTemplate();	
-	
-	//URL: matchResults
-	//params: all user question inputs
-	//method call: storeMatchInHashMap
-	//return the Hash Map that contains the key(the pet type) and corresponding matching rate 
+	@Autowired
+	HttpSession session;
+	@Autowired
+	UserRepo ur;
+
+	RestTemplate rt = new RestTemplate();
+
+	// just testing if JPA gets the data from database.
+	@RequestMapping("/table")
+	public ModelAndView displayTable() {
+		System.out.println(pr);
+		return new ModelAndView("index", "quest", pr.findAll());
+	}
+
 	@RequestMapping("/matchResults")
 	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
-			@RequestParam(name = "size", required = false) String size,
 			@RequestParam(name = "interact", required = false) String interact,
 			@RequestParam(name = "cost", required = false) String cost,
 			@RequestParam(name = "hours", required = false) String hours,
-			@RequestParam(name = "mess", required = false) String mess) {
+			@RequestParam(name = "noise", required = false) String noise) {
 		ModelAndView mv = new ModelAndView("answers");
-		System.out.println("space: " + space);
-		mv.addObject("space",db.storeMatchInHashMap(space, size, interact, cost, hours, mess));
+		mv.addObject("space", db.storeMatchInHashMap(space, interact, cost, hours, noise));
+//		mv.addObject("maxType", db.storeMatchInHashMap(space, interact, cost, hours, noise));
 		return mv;
 	}
-	
-	//URL: quiz
-	//this method simplely just links the first home page to the question page
+
 	@RequestMapping("/quiz")
-	public ModelAndView indexToQuestions() {
+	public ModelAndView indexToQuestions(@RequestParam("email") String email) {
+		User user;
+		if(ur.findByEmail(email) == null) {
+			user = new User(email);
+			ur.save(user);
+			session.setAttribute("user1", user);
+		}else{
+			user = ur.findByEmail(email);
+			session.setAttribute("user1", user);
+		}
+
 		return new ModelAndView("quest");
 	}
-
-
-	@RequestMapping("/pop-pets")
-	public ModelAndView showPets() {
-		System.out.println(ppr);
-		return new ModelAndView("index", "pets", ppr.findAll());
-	}
-
-
+	
 	
 
-//	//just testing if JPA gets the data from database.
-//	@RequestMapping("/table")
-//	public ModelAndView displayTable() {
-//		System.out.println(pr);
-//		return new ModelAndView("index", "quest", pr.findAll());
+//	@RequestMapping("/quest")
+//	public ModelAndView questToAnswers() {
+//		return new ModelAndView("answers");
 //	}
+
 }

@@ -126,18 +126,4 @@ public class PetService {
 		return ssp;
 	}
 
-//	public StoreSelectedPets createViewHistory(ResponseEntity<Pet> petIDResponse, StoreSelectedPets s ) {
-//		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
-//			s.setPhotos(
-//					"https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
-//			s = new StoreSelectedPets(s.getPhotos(), petIDResponse.getBody().getAnimal().getName(),
-//					petIDResponse.getBody().getAnimal().getGender(),
-//					petIDResponse.getBody().getAnimal().getDescription());
-//		} else {
-//			s = new StoreSelectedPets(petIDResponse.getBody().getAnimal().getPhotos().get(0).getMedium(),
-//					petIDResponse.getBody().getAnimal().getName(), petIDResponse.getBody().getAnimal().getGender(),
-//					petIDResponse.getBody().getAnimal().getDescription());
-//		}
-//		return s;
-//	}
 }

@@ -11,10 +11,10 @@
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
-		<div class="container">
+	<div class="container">
 		<img height="500px" width="auto" src="${basic.photos}" />
 		<br>
 		<br>
@@ -34,12 +34,13 @@
 			${contacts.address.postcode}
 		</div>
 		<br />
-	</div>
-	<!-- Testing view history, hasn't finish yet -->
-	<div class="container">
-		<img height="100px" width="auto" src="${viewedPetBasic.photos}"/><br>
-		Name: ${viewedPetBasic.name}
-		More Info: <!-- redirect back to description and contact-page when user clicks-->
-	</div >
+	</div> 
+
+	<c:forEach items="${view}" var="v">
+	<img height="100px" width="auto"  src="${ v.photo}"/>
+	${v.petName}
+	</c:forEach>
+	
+
 </body>
 </html>
