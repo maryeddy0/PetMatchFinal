@@ -26,6 +26,7 @@
 <p>What type of space would you mostly share with your pet?</p>
 <input type="radio" name="space" value="backyard">Backyard<br>
 <input type="radio" name="space" value="inhouse" checked>In house<br>
+<input type="radio" name="space" value="backyard&inhouse">Backyard and in house<br>
 <br>
 
 <p>Based off of your last answer, how big is that space?</p>
@@ -36,6 +37,7 @@
 
 <p>How do you want to interact with your pet?</p>
 <input type="radio" name="interact" value="explore" checked>Explore<br>
+<input type="radio" name="interact" value="admire">Play and exercise<br>
 <input type="radio" name="interact" value="admire">Admire<br>
 <input type="radio" name="interact" value="cuddle">Cuddle<br>
 <br>
