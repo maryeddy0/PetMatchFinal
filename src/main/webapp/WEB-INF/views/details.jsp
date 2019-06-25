@@ -17,18 +17,23 @@
 
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
-		<c:forEach items="${basicInfo}" var="i">
+			<c:forEach items="${basicInfo}" var="i">
 			<div class="column">
 				<div class="card">
 					<div style="padding: 10px;">
 						<div class="c">
-							<img src="${i.photos}" /><br />
-							Name: ${i.name} <br /> Gender: ${i.gender} <br /> Age: ${i.age}
+							<img height="330" width="auto" align="middle" src="${i.photos}" /><br />
+							Name: ${i.name} <br/> Gender: ${i.gender} <br/> Age: ${i.age}
 							<br />
 							<!-- URL link: moreDetail -->
 							<a
+<<<<<<< Updated upstream
 								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}"><button
+									class="button">More Information</button></a><br />
+=======
+								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
 									class="button">More Description</button></a><br />
+>>>>>>> Stashed changes
 						</div>
 					</div>
 				</div>
