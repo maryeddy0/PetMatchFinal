@@ -96,7 +96,7 @@ public class PetController {
 //		String url = "https://api.petfinder.com/v2/animals?type="+type+"&size="+size+"&limit="+limit;
 //
 //		ResponseEntity<Pets> petResponse= rt.exchange(url, HttpMethod.GET, new HttpEntity<>("paramters", headers), Pets.class);
-//
+//                                                              
 //		ModelAndView mv = new ModelAndView("display-selected");
 //		mv.addObject("type", type);
 //		mv.addObject("display", petResponse.getBody().getAnimals());
