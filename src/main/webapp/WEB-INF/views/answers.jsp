@@ -43,6 +43,5 @@
 			<!-- go to petController, type is sending over... -->
 		</c:forEach>
 	</div>
-
 </body>
 </html>

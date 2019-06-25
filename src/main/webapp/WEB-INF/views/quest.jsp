@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <title>Question test page</title>
 <script>
-
+<!--thr form validate is not working-->
 </script>
 </head>
 <body style="margin:70px;">
@@ -49,8 +49,8 @@
 <p>What size poop can you endure?</p>
 <input type="radio" name="mess" value="smallgift">A small gift<br>
 <input type="radio" name="mess" value="mediocore">A mediocre gift<br>
-<input type="radio" name="mess" value="massive">A massive gift<br>
-<input type = "submit" value="Submit" onsubmit="return validateForm()">
+<input type="radio" name="mess" value="massive">A massive gift<br><br>
+<input type = "submit" value="Submit" onsubmit="return validateForm()"> <!-- The form is gone, accidently deleted it -->
 </form>
 
 </body>

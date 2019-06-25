@@ -55,6 +55,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/login">Login</a></li>
+			</ul>
 				<!-- No login page yet -->
 
 				<!-- 	<form class="navbar-form navbar-left" action="/action_page.php">

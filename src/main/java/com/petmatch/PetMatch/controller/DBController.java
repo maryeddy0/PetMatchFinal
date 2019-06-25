@@ -16,10 +16,13 @@ import com.petmatch.PetMatch.repo.PopularpetsRepo;
 public class DBController {
 	@Value("${pet.key}")
 	String petKey;
+	
 	@Autowired
 	PetService ps;
+	
 	@Autowired
 	PetsRepo pr;
+	
 	@Autowired
 	PopularpetsRepo ppr;
 	@Autowired
