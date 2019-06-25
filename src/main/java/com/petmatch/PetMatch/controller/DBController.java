@@ -34,12 +34,13 @@ public class DBController {
 	//return the Hash Map that contains the key(the pet type) and corresponding matching rate 
 	@RequestMapping("/matchResults")
 	public ModelAndView qSpace(@RequestParam(name = "space", required = false) String space,
+			@RequestParam(name = "size", required = false) String size,
 			@RequestParam(name = "interact", required = false) String interact,
 			@RequestParam(name = "cost", required = false) String cost,
 			@RequestParam(name = "hours", required = false) String hours,
-			@RequestParam(name = "noise", required = false) String noise) {
+			@RequestParam(name = "mess", required = false) String mess) {
 		ModelAndView mv = new ModelAndView("answers");
-		mv.addObject("space",db.storeMatchInHashMap(space, interact, cost, hours, noise));
+		mv.addObject("space",db.storeMatchInHashMap(space, size, interact, cost, hours, mess));
 		return mv;
 	}
 	

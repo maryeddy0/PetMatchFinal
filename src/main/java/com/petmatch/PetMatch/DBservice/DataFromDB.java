@@ -41,18 +41,17 @@ public class DataFromDB {
 
 	// store user inputs into a List
 	// return the list called ls
-	private List<String> storeInputsIntoAList(String space, String interact, String cost, String hours, String noise) {
-		List<String> ls = new ArrayList<>(Arrays.asList(space, interact, cost, hours, noise));
+	private List<String> storeInputsIntoAList(String space, String size, String interact, String cost, String hours, String mess) {
+		List<String> ls = new ArrayList<>(Arrays.asList(space, size, interact, cost, hours, mess));
 		return ls;
 	}
 
 	// sorted their value for displaying the match bars in order
 	// store the sorted match result to hashMap
 	// return the sorted hashMap to the controller class
-	public Map<String, Integer> storeMatchInHashMap(String space, String interact, String cost, String hours,
-			String noise) {
+	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost, String hours, String mess) {
 		Map<String, Integer> matchRate = new HashMap<>();
-		checkMatch(storeInputsIntoAList(space, interact, cost, hours, noise), matchRate);
+		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess), matchRate);
 
 		// sorted them by its value
 		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);
