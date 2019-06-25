@@ -1,6 +1,6 @@
 package com.petmatch.PetMatch.entityTypes;
 
-//create this class to hold the basic information as an object in order to display on the page as an arrayList
+//create this class to hold the basic information as an object in order to display on the page.
 public class StoreSelectedPets {
 	private String photos;
 	private String name;
@@ -8,6 +8,7 @@ public class StoreSelectedPets {
 	private String gender;
 	private String description;
 	private String organizationID;
+	private Integer petID;
 	
 	
 	public StoreSelectedPets() {
@@ -22,8 +23,16 @@ public class StoreSelectedPets {
 		this.description = description;
 	}
 
+	public StoreSelectedPets(String photos, String name, String gender, String description) {
+		super();
+		this.photos = photos;
+		this.name = name;
+		this.gender = gender;
+		this.description = description;
+	}
+
 	public StoreSelectedPets(String photos, String name, String age, String gender, String description,
-			String organizationID) {
+			String organizationID, Integer petID) {
 		super();
 		this.photos = photos;
 		this.name = name;
@@ -31,6 +40,15 @@ public class StoreSelectedPets {
 		this.gender = gender;
 		this.description = description;
 		this.organizationID = organizationID;
+		this.petID = petID;
+	}
+
+	public Integer getPetID() {
+		return petID;
+	}
+
+	public void setPetID(Integer petID) {
+		this.petID = petID;
 	}
 
 	public StoreSelectedPets(String photos) {
