@@ -41,9 +41,10 @@ public class PetService {
 	// return the sepcific type
 	public String matchTheTypeNameWithAPI(String type) {
 
-		if (type.equalsIgnoreCase("reptile")) {
+
+		 if (type.equalsIgnoreCase("reptile")) {
 			type = "scales-fins-other";
-		} else if(type.equalsIgnoreCase("smallfurry")) {
+		} else if (type.equalsIgnoreCase("scales")) {
 			type = "small-furry";
 		}
 		return type;
