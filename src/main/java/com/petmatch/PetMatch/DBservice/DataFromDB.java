@@ -24,7 +24,7 @@ public class DataFromDB {
 	@Autowired
 	PetsRepo pr;
 
-	 //store the types from pets database into a list
+	// store the types from pets database into a list
 	public List<String> storeTypes() {
 		List<String> petTypeDB = pr.getType();
 		return petTypeDB;
@@ -40,15 +40,16 @@ public class DataFromDB {
 	// return the list called ls
 	private List<String> storeInputsIntoAList(String space, String size, String interact, String cost, String hours,
 			String mess, String bath, String friend, String eat, String dress) {
-		List<String> ls = new ArrayList<>(Arrays.asList(space, size, interact, cost, hours, mess, bath, friend, eat, dress));
+		List<String> ls = new ArrayList<>(
+				Arrays.asList(space, size, interact, cost, hours, mess, bath, friend, eat, dress));
 		return ls;
 	}
 
 	// sorted their value for displaying the match bars in order
 	// store the sorted match result to hashMap
 	// return the sorted hashMap to the controller class
-	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost, String hours,
-			String mess, String bath, String friend, String eat, String dress) {
+	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost,
+			String hours, String mess, String bath, String friend, String eat, String dress) {
 		Map<String, Integer> matchRate = new HashMap<>();
 		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess, bath, friend, eat, dress), matchRate);
 
@@ -73,17 +74,14 @@ public class DataFromDB {
 
 	// check match by loop through user inputs and keywords string
 	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
-			for (int j = 0; j < ls.size(); j++) { // this ls is the user input/keywords list
-				for (int i = 0; i < storeTypes().size(); i++) { // check keywords/String size
-					if (storeKeywords().get(i).contains(ls.get(j))) {// keywords column contains user input
-						System.out.println("first If input "+ls.get(i));
-						if (matchRate.containsKey(storeTypes().get(i))) {// if the hash-map has the key/type
-							System.out.println("if: key: "+storeTypes().get(i));
-							incrementValue(matchRate, storeTypes().get(i));// only increase its value
-						} else {
-							System.out.println("else: key: "+storeTypes().get(i)+" "+ ls.get(i));
-							matchRate.put(storeTypes().get(i), 10);
-						}
+		for (int j = 0; j < ls.size(); j++) { // this ls is the user input/keywords list
+			for (int i = 0; i < storeTypes().size(); i++) { // check keywords/String size
+				if (storeKeywords().get(i).contains(ls.get(j))) {// keywords column contains user input
+					if (matchRate.containsKey(storeTypes().get(i))) {// if the hash-map has the key/type
+						incrementValue(matchRate, storeTypes().get(i));// only increase its value
+					} else {
+						matchRate.put(storeTypes().get(i), 10);
+					}
 				}
 			}
 		}
