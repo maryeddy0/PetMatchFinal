@@ -6,14 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link
+<!-- <link
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 <body style="mask-size: 3em;">
+
+
+<body>
+
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
 		<c:forEach items="${basicInfo}" var="i">
