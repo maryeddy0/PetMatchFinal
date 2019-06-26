@@ -22,7 +22,7 @@
 <body style="background-image:url(puppy.jpg); background-size: cover; font-size: 16;  background-attachment: fixed;
     height:700px;">
 
-<div id="parent" style="height:1200px; padding:40px; float:left; width:500px; position:absolute; z-index: 2;
+<div id="parent" style="height:1200px; padding:40px; float:left; width:550px; position:absolute; z-index: 2;
     position: inherit;">
 
 <h1 style="color:orange; font-style:heavy; font-size: 70px; font-weight: bold;">Friends for Life Quiz</h1>
