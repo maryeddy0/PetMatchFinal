@@ -36,7 +36,7 @@
 	</div>
 	<!-- Yelp Part! -->
 	<div class="container">
-	<h1>If you want to look up for an specific zip code enter it below!</h1>
+	<h1>To find more adoption resources in your area, enter your zip code beloe</h1>
 	
 	<form action ="/resultsyelp" method = "POST">
         <input type="number" name="zipcode"  minlength="8" required><br>

@@ -47,7 +47,11 @@ public class PetService {
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
 		params.put("client_id", petKey);
+
 		params.put("client_secret", clientSecret);
+
+		params.put("client_secret", "qevQ78uvL3dzNedhKrWGekeEqjsfXATdL6Obq2Z6");
+
 
 		RestTemplate rt = new RestTemplate();
 		@SuppressWarnings("unchecked") // Q for TA/Instructor: is this ok to add in order to get rid of warning below??

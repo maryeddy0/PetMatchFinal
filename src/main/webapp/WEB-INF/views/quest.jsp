@@ -16,13 +16,13 @@
 
 </head>
 
-<body style="background-image:url(puppy.jpg); background-size: cover; font-size: 18;  background-attachment: fixed;
+<body style="background-image:url(puppy.jpg); background-size: cover; font-size:19px;  background-attachment: fixed;
     height:700px;">
 
 <div id="parent" style="height:1200px; padding-top:40px; margin-left:10%; float:left; width:550px; position:absolute; z-index: 2;
     position: inherit;">
 
-<h1 style="color:#ff7007; font-style:heavy; font-size: 90px; font-weight: bold;">Friends for Life Quiz</h1>
+<h1 style="color:#ff7007; font-style:heavy; font-size: 100px; font-weight:bold;">Friends for Life Quiz</h1>
 <h2>Select an answer for each question below to find your best match</h2>
 
 
@@ -77,9 +77,19 @@
 <input type="radio" name="friend" value="chill">Chill<br>
 <br>
 
-<input style="background-color:#ff7007; color:white;"  type = "submit" value="Submit" > <!-- The form is gone, accidently deleted it -->
+<input style="background-color:#ff7007; color:white;"  type = "submit" value="Submit" onsubmit="return dontEatPets()"> <!-- The form is gone, accidently deleted it -->
 </form>
 </div>
+
+<script>
+function dontEatPets() {
+	  var x = document.forms["quest"]["eat"].value;
+	  if (x == "yes") {
+	    alert("Because you answered likely to eat your pet, we ask you not to pursue pet adoption. Thank you");
+	    return false;
+	  }
+	}
+</script>
 
 </body>
 

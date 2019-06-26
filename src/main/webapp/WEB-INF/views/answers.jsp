@@ -17,7 +17,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background-image:url(puppyeyes.jMatesbackground-size:cover;">
+
+
+<body style="background-image:url(cat-fav.jpg); background-size:cover;">
+
 
 	<div class="container">
 		<h1>Your Match Mates</h1>

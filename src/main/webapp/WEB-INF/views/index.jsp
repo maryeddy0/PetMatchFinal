@@ -21,11 +21,11 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Pet Match</a>
+                <a class="navbar-brand" href="#">Friends for Life</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
+      
             </ul>
                 <!-- No login page yet -->
 
@@ -39,14 +39,14 @@
         </div>
     </nav>
     <div class="container">
-        <h1 style="color:orange; font-style:heavy; font-size: 70px; font-weight: bold; padding-top:30px;">Welcome to <br>Friends for Life</h1>
+        <h1 style="color:#ff7007; font-style:heavy; font-size: 70px; font-weight: bold; padding-top:30px;">Welcome to <br>Friends for Life</h1>
     
         <h3> Enter your email to start your test:</h3>
           <form action="/quiz"> 
             <input type="text" name="email">
-			<input type="submit" value="Start!">
+			<input style="background-color:#ff7007; color:white;" type="submit" value="Start!">
 			</form>
-        <br />
+    
         <h3>Browse pet types below</h3>
         <form action="/selected" class="navbar-form navbar-left">
             <select class="btn btn-default" name="type" class="form-control">
@@ -56,8 +56,8 @@
                 <option value="small-furry">Small & Furry</option>
                 <option value="scales-fins-other">Reptile</option>
                 <option value="horse">Horse</option>
-            </select> <input type="submit" class="btn btn-primary" value="Search">
-
+            </select> <input style="background-color:#ff7007; color:white;" type="submit" value="Search">
+<!--  class="btn btn-primary"  -->
         </form>
     </div>
 

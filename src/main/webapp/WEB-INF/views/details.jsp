@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link
+<link
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css"> -->
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="mask-size: 3em;">
 
