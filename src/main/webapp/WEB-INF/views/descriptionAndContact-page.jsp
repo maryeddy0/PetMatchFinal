@@ -14,6 +14,7 @@
 
 </head>
 <body>
+	<!-- Pet basic infor and contacts -->
 	<div class="container">
 		<img height="500px" width="auto" src="${basic.photos}" /> <br> <br>
 		<div class="container">
@@ -33,7 +34,18 @@
 		</div>
 		<br />
 	</div>
-
+	<!-- Yelp Part! -->
+	<div class="container">
+	<h1>If you want to look up for an specific zip code enter it below!</h1>
+	
+	<form action ="/resultsyelp" method = "POST">
+        <input type="number" name="zipcode"  minlength="8" required><br>
+        <input type= "submit" value="Submit">
+   
+    </form>
+    
+	</div>
+	<!-- view history part -->
 	<div class="container">
 		<h3>Your most recent 5 views:</h3>
 		<c:forEach items="${views}" var="v">
@@ -42,6 +54,7 @@
 		</c:forEach>
 	</div>
 
+	
 
 </body>
 </html>
