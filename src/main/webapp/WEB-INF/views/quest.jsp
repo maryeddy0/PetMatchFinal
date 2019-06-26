@@ -25,7 +25,7 @@
 <div id="parent" style="height:1200px; padding:40px; float:left; width:550px; position:absolute; z-index: 2;
     position: inherit;">
 
-<h1 style="color:orange; font-style:heavy; font-size: 70px; font-weight: bold;">Friends for Life Quiz</h1>
+<h1 style="color:orange; font-style:heavy; font-size: 80px; font-weight: bold;">Friends for Life Quiz</h1>
 <h3>Select an answer for each question below to find your best match</h3>
 
 
@@ -95,7 +95,6 @@
 <input type = "submit" value="Submit" onsubmit="return validateForm()"> <!-- The form is gone, accidently deleted it -->
 </form>
 </div>
-
 
 <script>
 function dontEatPets() {
