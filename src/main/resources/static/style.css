@@ -1,57 +1,66 @@
 @charset "ISO-8859-1";
 
-.container h1{
+.container h1 {
 	text-align: center;
 	font-size: 50px;
 	text-transform: uppercase;
 	margin-bottom: 10%;
 }
 
-.container h4{
+.container h4 {
 	font-size: 150%;
-	color:black;
+	color: black;
 	text-transform: capitalize;
 }
-.container img{
-	 max-width: 30%;
-	 max-height: 30%; 
+
+.container img {
+	max-width: 30%;
+	max-height: 30%;
 }
-.progress{
+
+.progress {
 	height: 40px;
 }
 
 .button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
+	border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 8px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
 }
 
 .button:hover {
-  background-color: #555;
+	background-color: #555;
 }
 
 .card {
-  box-shadow: 0 40px 100px 0 rgba(0, 0, 0, 5);
+	box-shadow: 0 30px 100px 0 rgba(0, 0, 0, 5);
 }
 
 .c::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .column {
-  float: center;
-  width: 30%;
-  margin-bottom: 15px;
-  padding: 0 20px;
+	float: center;
+	width: 25%;
+	margin-bottom: 10px;
+	padding: 0 20px;
 }
+
 .c {
-  padding: 5 10px;
+	padding: 1 5px;
+}
+
+#img {
+	height: 100;
+	width: auto;
+	overflow: hidden;
 }

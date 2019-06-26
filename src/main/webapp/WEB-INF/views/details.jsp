@@ -23,9 +23,9 @@
 		<c:forEach items="${basicInfo}" var="i">
 			<div class="column">
 				<div class="card">
-					<div style="padding: 10px;">
+					<div style="padding: 3px;">
 						<div class="c">
-							<img src="${i.photos}" /><br /> Name: ${i.name} <br /> Gender:
+							<img id="img" src="${i.photos}" /><br /> Name: ${i.name} <br /> Gender:
 							${i.gender} <br /> Age: ${i.age} <br />
 							<!-- URL link: moreDetail -->
 							<a

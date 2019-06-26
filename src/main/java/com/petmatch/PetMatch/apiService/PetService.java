@@ -168,7 +168,7 @@ public class PetService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + getToken());
 
-		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=5";
+		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=8";
 		ResponseEntity<Pets> petResponse = rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers),
 				Pets.class);
 		return petResponse;
