@@ -3,7 +3,6 @@ package com.petmatch.PetMatch.apiService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;

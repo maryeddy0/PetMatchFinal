@@ -26,8 +26,7 @@
 							Name: ${i.name} <br/> Gender: ${i.gender} <br/> Age: ${i.age}
 							<br />
 							<!-- URL link: moreDetail -->
-							<a
-								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
+							<a href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
 									class="button">More Description</button></a><br />
 						</div>
 					</div>
