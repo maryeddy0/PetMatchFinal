@@ -22,7 +22,6 @@ import com.petmatch.PetMatch.entities.PetOrganization;
 import com.petmatch.PetMatch.entities.Pets;
 import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 import com.petmatch.PetMatch.pojosDB.History;
-import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.HistoryRepo;
 import com.petmatch.PetMatch.repo.UserRepo;
 
@@ -65,57 +64,39 @@ public class PetController {
 	// view page: details
 	@RequestMapping("/selected")
 	public ModelAndView detailedInfo(@RequestParam("type") String type) {
+		System.out.println("type :" +type);
 		type = ps.matchTheTypeNameWithAPI(type);
+		ResponseEntity<Pets> petResponse = ps.getJsonBodyFromAnimalsEndPoint(type);
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "Bearer " + ps.getToken());
-
-		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=5";
-		ResponseEntity<Pets> petResponse = rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers),
-				Pets.class);
-
-		// where I can the method from Petservice: savePetBasicInfoObjectToAList();
 		ArrayList<StoreSelectedPets> petsInfo = ps.savePetBasicInfoObjectToAList(petResponse);
-
+		
 		ModelAndView mv = new ModelAndView("details");
 		mv.addObject("basicInfo", petsInfo);
 		return mv;
 	}
 
+
+
 	// RequestParam to avoid to create a responseEntity again to call the same thing from before. so I just passed in those primary info
     // Yelp can start in here as a link/map/anything you want to add
     @RequestMapping("/moreDetail")
     public ModelAndView getMoreDetails(@RequestParam("description") String description,
-            @RequestParam("photo") String photo, @RequestParam("name") String name,
+            @RequestParam(name ="photo", required=false) String photo, @RequestParam("name") String name,
             @RequestParam("orgID") String organizationID, @RequestParam("petID") Integer petID) {
         // some description has null value, will add validation for it later on
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Bearer " + ps.getToken());
-        String url1 = "https://api.petfinder.com/v2/organizations/" + organizationID;
-        ResponseEntity<PetOrganization> orgResponse = rt.exchange(url1, HttpMethod.GET,
-                new HttpEntity<>("paramters", headers), PetOrganization.class);
-        
+        ResponseEntity<PetOrganization> orgResponse = ps.getJsonBodyFromOganizationIDEndPoint(organizationID);
+ 
         StoreSelectedPets s = new StoreSelectedPets(photo, name, description);
+        
         ModelAndView mv = new ModelAndView("descriptionAndContact-page");
+		List<History> history = ps.savePetDataToDB(photo, name, petID, orgResponse);
         mv.addObject("basic", s);
         mv.addObject("contacts", orgResponse.getBody().getOrganization());
-
-//		/****************************************************/
-   
-		String petEmail = orgResponse.getBody().getOrganization().getEmail();
-		String petPhone = orgResponse.getBody().getOrganization().getPhone();
-		String petOrgName = orgResponse.getBody().getOrganization().getName();
-		//Returns the object bound with the specified name in this session, or null if no object is bound under the name.
-		User userFromDBContoller = (User) session.getAttribute("user1");
-		//System.out.println("FIX ME USER: " + userFromDBContoller);
-		History test = new History(userFromDBContoller.getUserid(), petID, photo, name, petEmail, petPhone, petOrgName);
-		//System.out.println(test);
-		hr.save(test);
-		User userHistory = (User) session.getAttribute("user1");//returns an object(email and id)
-		List<History> history = hr.findByUserid(userHistory.getUserid());//get the id by calling the reference variable, return the whole history object
 		mv.addObject("views", history);
 		return mv;
 	}
+
+
 
 
 

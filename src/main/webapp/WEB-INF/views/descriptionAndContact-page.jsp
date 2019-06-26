@@ -34,10 +34,13 @@
 		<br />
 	</div>
 
-	<c:forEach items="${views}" var="v">
-		<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
-	${v.petName}
-	</c:forEach>
+	<div class="container">
+		<h3>Your most recent 5 views:</h3>
+		<c:forEach items="${views}" var="v">
+			<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
+			${v.petName}
+		</c:forEach>
+	</div>
 
 
 </body>

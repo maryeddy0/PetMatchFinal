@@ -23,20 +23,18 @@
 				<div class="card">
 					<div style="padding: 10px;">
 						<div class="c">
-							<img height="330" width="auto" align="middle" src="${i.photos}" /><br />
-							Name: ${i.name} <br/> Gender: ${i.gender} <br/> Age: ${i.age}
-							<br />
+							<img src="${i.photos}" /><br /> Name: ${i.name} <br /> Gender:
+							${i.gender} <br /> Age: ${i.age} <br />
 							<!-- URL link: moreDetail -->
 							<a
-								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
-									class="button">More Description</button></a><br />
+								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}"><button
+									class="button">More Information</button></a><br />
 						</div>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
 	</div>
-	<form action="/viewHistory">
-	</form>
+	<a href="/viewHistory">View History</a>
 </body>
 </html>
