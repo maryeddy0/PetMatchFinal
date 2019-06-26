@@ -13,6 +13,8 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<body style="mask-size: 3em;">
+=======
 <body>
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
