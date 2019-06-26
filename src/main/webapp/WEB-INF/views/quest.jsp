@@ -13,23 +13,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Question test page</title>
-<script>
-<!--thr form validate is not working-->
-	
-</script>
+
 </head>
 
-<body style="background-image:url(puppy.jpg); background-size: cover; font-size: 16;  background-attachment: fixed;
+<body style="background-image:url(puppy.jpg); background-size: cover; font-size: 18;  background-attachment: fixed;
     height:700px;">
 
-<div id="parent" style="height:1200px; padding:40px; float:left; width:550px; position:absolute; z-index: 2;
+<div id="parent" style="height:1200px; padding-top:40px; margin-left:10%; float:left; width:550px; position:absolute; z-index: 2;
     position: inherit;">
 
-<h1 style="color:orange; font-style:heavy; font-size: 80px; font-weight: bold;">Friends for Life Quiz</h1>
-<h3>Select an answer for each question below to find your best match</h3>
+<h1 style="color:#ff7007; font-style:heavy; font-size: 90px; font-weight: bold;">Friends for Life Quiz</h1>
+<h2>Select an answer for each question below to find your best match</h2>
 
 
-<form name="quest" action="/matchResults" onsubmit="return dontEatPets()">
+<form name="quest" action="/matchResults" >
  <p>1. What type of space would you mostly share with your pet?</p>
 <input type="radio" name="space" value="backyard">Backyard<br>
 <input type="radio" name="space" value="inhouse" checked>In house<br>
@@ -80,31 +77,9 @@
 <input type="radio" name="friend" value="chill">Chill<br>
 <br>
 
-<p>9. How likely are you to eat your pet?</p>
-<input type="radio" name="eat" value="nlikely" checked>Not likely<br>
-<input type="radio" name="eat" value="only">Only under extreme conditions<br>
-<input type="radio" name="eat" value="possibly">Very possibly<br>
-<br>
-
-<p>10. Are you likely to dress up your pet?</p>
-<input type="radio" name="dress" value="yes" checked>yes<br>
-<input type="radio" name="dress" value="maybe">Maybe<br>
-<input type="radio" name="dress" value="no">No<br>
-<br>
-
-<input type = "submit" value="Submit" onsubmit="return validateForm()"> <!-- The form is gone, accidently deleted it -->
+<input style="background-color:#ff7007; color:white;"  type = "submit" value="Submit" > <!-- The form is gone, accidently deleted it -->
 </form>
 </div>
-
-<script>
-function dontEatPets() {
-	  var x = document.forms["quest"]["eat"].value;
-	  if (x == "yes") {
-	    window.alert("Because you answered likely to eat your pet, we ask you not to pursue pet adoption. Thank you");
-	    return false;
-	  }
-	}
-</script>
 
 </body>
 
