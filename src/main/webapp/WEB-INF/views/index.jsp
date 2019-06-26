@@ -15,7 +15,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background: url(index.gif); background-size: cover;">
 	
 
  
@@ -42,17 +42,18 @@
 	
 	
 	<div class="container">
-		<h1>Welcome to Friends for Life</h1>
-
-
-		<h3>
-			Click below to find your match:<br>
-		</h3>
-		<h4>
-			<a href="/quiz">Start the Test!</a>
-		</h4>
-		<br />
-		<h3>If you want to choose an specific type of pet click below</h3>
+		<h1 style="color:orange; font-style:heavy; font-size: 70px; font-weight: bold; padding-top:30px;">Welcome to<br>Friends for Life</h1>
+		
+		<h3>Login to find your pet match:</h3>
+			
+			<form action="/login">
+			<input type="email" name="email">
+			<input type="submit" value="Login">
+			</form>
+		
+	<a style="color:orange; font-style:heavy; font-size:30px;" href="/quiz">Start the Test!</a>
+		
+		<h3>Browse pet types below</h3>
 		<form action="/selected" class="navbar-form navbar-left">
 			<select class="btn btn-default" name="type" class="form-control">
 				<option value="dog">Dog</option>

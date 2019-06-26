@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="mask-size: 3em;">
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
 		<c:forEach items="${basicInfo}" var="i">
