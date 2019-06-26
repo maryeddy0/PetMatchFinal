@@ -14,8 +14,6 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="mask-size: 3em;">
-=======
-<body>
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
 		<c:forEach items="${basicInfo}" var="i">
@@ -27,14 +25,13 @@
 							${i.gender} <br /> Age: ${i.age} <br />
 							<!-- URL link: moreDetail -->
 							<a
-								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}"><button
-									class="button">More Information</button></a><br />
+								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
+									class="button">More Description</button></a><br />
 						</div>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
 	</div>
-	<a href="/viewHistory">View History</a>
 </body>
 </html>
