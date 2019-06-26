@@ -23,6 +23,7 @@ public class StoreSelectedPets {
 		this.description = description;
 	}
 
+	
 	public StoreSelectedPets(String photos, String name, String gender, String description) {
 		super();
 		this.photos = photos;

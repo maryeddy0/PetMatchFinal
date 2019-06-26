@@ -3,6 +3,7 @@ package com.petmatch.PetMatch.apiService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -29,7 +30,7 @@ public class PetService {
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
 		params.put("client_id", petKey);
-		params.put("client_secret", "qevQ78uvL3dzNedhKrWGekeEqjsfXATdL6Obq2Z6");
+		params.put("client_secret", "ATzD0I5Kl6f6FL0OQYQpmAZlc3Pmx70BQcBLCotV");
 
 		RestTemplate rt = new RestTemplate();
 		@SuppressWarnings("unchecked") // Q for TA/Instructor: is this ok to add in order to get rid of warning below??
@@ -40,23 +41,9 @@ public class PetService {
 	// get Type from user, and match the type with API type name
 	// return the sepcific type
 	public String matchTheTypeNameWithAPI(String type) {
-		 if (type.equalsIgnoreCase("reptile")) {
-			 if (type.equalsIgnoreCase("fish")) {
-				 type = "scales-fins-other";
-			 } else if (type.equalsIgnoreCase("scales")) {
-				 type = "scales-fins-other";
-			 } else if (type.equalsIgnoreCase("smallfurry")) {
-				 type = "small-furry";
-			 }
-		 }
-
-		 if (type.equalsIgnoreCase("reptile")) {
-
+		if (type.equalsIgnoreCase("reptile")) {
 			type = "scales-fins-other";
-		} else if (type.equalsIgnoreCase("scales")) {
-
-			type = "scales-fins-other";
-		} else if (type.equalsIgnoreCase("smallfurry")) {
+		} else if(type.equalsIgnoreCase("smallfurry")) {
 			type = "small-furry";
 		}
 		return type;
@@ -67,51 +54,30 @@ public class PetService {
 	// return the ArrayList
 	public ArrayList<StoreSelectedPets> savePetBasicInfoObjectToAList(ResponseEntity<Pets> petResponse) {
 		ArrayList<StoreSelectedPets> petsInfo = new ArrayList<>();
-		getResponseForEachPet(petResponse, petsInfo);
-		return petsInfo;
-	}
-
-	// Loop through ID and get corresponding pet basic info, and add to a ArrayList
-	// Method call: createPetBasicInfo()
-	// No return
-	public void getResponseForEachPet(ResponseEntity<Pets> petResponse, ArrayList<StoreSelectedPets> petsInfo) {
+		//store the objects to arraylist and display in jsp page
 		for (int i = 0; i < petResponse.getBody().getAnimals().size(); i++) {
 			Integer petID = petResponse.getBody().getAnimals().get(i).getId(); // pet ID
-			addPetToArrayList(petsInfo, petID);
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("Authorization", "Bearer " + getToken());
+			String url2 = "https://api.petfinder.com/v2/animals/" + petID;//endpoint
+			ResponseEntity<Pet> petIDResponse = rt.exchange(url2, HttpMethod.GET, new HttpEntity<>("paramters", headers),
+					Pet.class);//get Json Repsonse
+			StoreSelectedPets ssp = new StoreSelectedPets();  
+			ssp = createPetBasicInfo(petIDResponse, ssp, petID); // method call //the ID here just helps to stack to trace which pet user viewed
+			petsInfo.add(ssp);
+//			addPetToArrayList(petsInfo, petID);
 		}
+//		getResponseForEachPet(petResponse, petsInfo);
+		return petsInfo;
 	}
-
-	public void addPetToArrayList(ArrayList<StoreSelectedPets> petsInfo, Integer petID) {
-		ResponseEntity<Pet> petIDResponse = getResponseBySendingPetID(petID);
-		StoreSelectedPets ssp = new StoreSelectedPets();
-		ssp = createPetBasicInfo(petIDResponse, ssp, petID); // method call
-		petsInfo.add(ssp);
-	}
-
-	// used the endpoint : GET https://api.petfinder.com/v2/animals/{id}
-	// param: animal ID = petID
-	// return a json repsonse of class type of Pet
-	// this method will be called again in order to display user view history
-	public ResponseEntity<Pet> getResponseBySendingPetID(Integer petID) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "Bearer " + getToken());
-		String url2 = "https://api.petfinder.com/v2/animals/" + petID;
-		ResponseEntity<Pet> petIDResponse = rt.exchange(url2, HttpMethod.GET, new HttpEntity<>("paramters", headers),
-				Pet.class);
-		return petIDResponse;
-	}
-
-	// save each pet basic info that requested from API to "StoreSelectedPets"
-	// object class
-	// return the class reference variable
+	
 	public StoreSelectedPets createPetBasicInfo(ResponseEntity<Pet> petIDResponse, StoreSelectedPets ssp,
 			Integer petID) {
 		// check the photo from API is not empty
 		// there is definitely a better way to do the same thing here, I just don't know
 		// yet.
 		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
-			ssp.setPhotos(
-					"https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
+			ssp.setPhotos("https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
 			ssp = new StoreSelectedPets(ssp.getPhotos(), petIDResponse.getBody().getAnimal().getName(),
 					petIDResponse.getBody().getAnimal().getAge(), petIDResponse.getBody().getAnimal().getGender(),
 					petIDResponse.getBody().getAnimal().getDescription(),

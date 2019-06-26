@@ -10,6 +10,6 @@ import com.petmatch.PetMatch.pojosDB.History;
 @Repository
 public interface HistoryRepo extends JpaRepository<History, Integer> {
 	
-	List<History> findByUserid(Integer userid);
+	List<History> findByUserid(Integer userid); //select h from History h where h = the userid.
 	
 }

@@ -17,7 +17,7 @@ public class User {
 	private Integer userid;
 	private String email;
 	
-	@OneToMany//(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany
 	private List<History> history = new ArrayList<>();
 	
 	public User() {
@@ -64,6 +64,12 @@ public class User {
 
 	public String getEmail() {
 		return email;
+	}
+
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", email=" + email + "]";
 	}
 	
 	

@@ -25,6 +25,17 @@ public class History {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public History(String photo, String petName, String contactEmail, String contactPhone, String organizationName) {
+		super();
+		this.photo = photo;
+		this.petName = petName;
+		this.contactEmail = contactEmail;
+		this.contactPhone = contactPhone;
+		this.organizationName = organizationName;
+	}
+
+
 	public History(Integer userid, Integer petID, String photo, String petName, String contactEmail,
 			String contactPhone, String organizationName) {
 		super();
@@ -36,6 +47,21 @@ public class History {
 		this.contactPhone = contactPhone;
 		this.organizationName = organizationName;
 
+	}
+	
+	
+
+	public History(Integer id, Integer userid, Integer petID, String photo, String petName, String contactEmail,
+			String contactPhone, String organizationName) {
+		super();
+		this.id = id;
+		this.userid = userid;
+		this.petID = petID;
+		this.photo = photo;
+		this.petName = petName;
+		this.contactEmail = contactEmail;
+		this.contactPhone = contactPhone;
+		this.organizationName = organizationName;
 	}
 
 	public Integer getUserid() {
@@ -111,4 +137,13 @@ public class History {
 	public void setOrganizationName(String organizationName) {
 		this.organizationName = organizationName;
 	}
+
+	@Override
+	public String toString() {
+		return "History [id=" + id + ", userid=" + userid + ", petID=" + petID + ", photo=" + photo + ", petName="
+				+ petName + ", contactEmail=" + contactEmail + ", contactPhone=" + contactPhone + ", organizationName="
+				+ organizationName + "]";
+	}
+	
+	
 }
