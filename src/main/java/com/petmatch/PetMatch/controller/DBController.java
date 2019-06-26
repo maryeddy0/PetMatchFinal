@@ -58,11 +58,9 @@ public class DBController {
             @RequestParam(name = "hours", required = false) String hours,
             @RequestParam(name = "mess", required = false) String mess,
             @RequestParam(name = "bath", required = false) String bath,
-            @RequestParam(name = "friend", required = false) String friend,
-            @RequestParam(name = "eat", required = false) String eat,
-            @RequestParam(name = "dress", required = false) String dress) {
+            @RequestParam(name = "friend", required = false) String friend) {
         ModelAndView mv = new ModelAndView("answers");
-        mv.addObject("space",db.storeMatchInHashMap(space, size, interact, cost, hours, mess, bath, friend, eat, dress));
+        mv.addObject("space",db.storeMatchInHashMap(space, size, interact, cost, hours, mess, bath, friend));
         return mv;
     }
     

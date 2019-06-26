@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background-image:url(puppyeyes.jpg); background-size:cover;">
+<body style="background-image:url(puppyeyes.jMatesbackground-size:cover;">
 
 	<div class="container">
 		<h1>Your Match Mates</h1>
@@ -38,9 +40,8 @@
 				</c:otherwise>
 			</c:choose>
 			<div class="progress">
-				<div class="progress-bar progress-bar-success"
-					aria-valuenow="${sp.value}" aria-valuemin="0" aria-valuemax="100"
-					style="width:${sp.value}%">${sp.value}%</div>
+				<div class="progress-bar progress-bar-success" aria-valuenow="${sp.value}" aria-valuemin="0" aria-valuemax="100" style="width:${sp.value}%">
+				<fmt:parseNumber var="i" integerOnly="true" type="number" value="${sp.value}"/> <c:out value="${i}" />%</div>
 			</div>
 			<!-- go to petController, type is sending over... -->
 		</c:forEach>

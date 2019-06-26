@@ -39,33 +39,33 @@ public class DataFromDB {
 	// store user inputs into a List
 	// return the list called ls
 	private List<String> storeInputsIntoAList(String space, String size, String interact, String cost, String hours,
-			String mess, String bath, String friend, String eat, String dress) {
+			String mess, String bath, String friend) {
 		List<String> ls = new ArrayList<>(
-				Arrays.asList(space, size, interact, cost, hours, mess, bath, friend, eat, dress));
+				Arrays.asList(space, size, interact, cost, hours, mess, bath, friend));
 		return ls;
 	}
 
 	// sorted their value for displaying the match bars in order
 	// store the sorted match result to hashMap
 	// return the sorted hashMap to the controller class
-	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost,
-			String hours, String mess, String bath, String friend, String eat, String dress) {
-		Map<String, Integer> matchRate = new HashMap<>();
-		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess, bath, friend, eat, dress), matchRate);
+	public Map<String, Double> storeMatchInHashMap(String space, String size, String interact, String cost,
+			String hours, String mess, String bath, String friend) {
+		Map<String, Double> matchRate = new HashMap<>();
+		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess, bath, friend), matchRate);
 
 		// sorted them by its value
-		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);
+		Map<String, Double> valueSortedMap = valueSortHashMapValue(matchRate);
 		return valueSortedMap;
 	}
 
 	// sort map value : needs to do more research about this one
 	// return sorted hash map to stroreMatchInHashMap()
-	private Map<String, Integer> valueSortHashMapValue(Map<String, Integer> matchRate) {
-		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(matchRate.entrySet());
+	private Map<String, Double> valueSortHashMapValue(Map<String, Double> matchRate) {
+		List<Entry<String, Double>> list = new LinkedList<Entry<String, Double>>(matchRate.entrySet());
 		Collections.sort(list, new MyComparator().reversed()); // check <ComparetorForSort> Class
 
-		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
-		for (Entry<String, Integer> entry : list) {
+		Map<String, Double> sortedMap = new LinkedHashMap<String, Double>();
+		for (Entry<String, Double> entry : list) {
 			sortedMap.put(entry.getKey(), entry.getValue());
 		}
 
@@ -73,14 +73,14 @@ public class DataFromDB {
 	}
 
 	// check match by loop through user inputs and keywords string
-	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
+	private void checkMatch(List<String> ls, Map<String, Double> matchRate) {
 		for (int j = 0; j < ls.size(); j++) { // this ls is the user input/keywords list
 			for (int i = 0; i < storeTypes().size(); i++) { // check keywords/String size
 				if (storeKeywords().get(i).contains(ls.get(j))) {// keywords column contains user input
 					if (matchRate.containsKey(storeTypes().get(i))) {// if the hash-map has the key/type
 						incrementValue(matchRate, storeTypes().get(i));// only increase its value
 					} else {
-						matchRate.put(storeTypes().get(i), 10);
+						matchRate.put(storeTypes().get(i), 12.50);
 					}
 				}
 			}
@@ -89,9 +89,9 @@ public class DataFromDB {
 
 	// if the type is already in the hash-map(in above method tells details), then
 	// just increment the its value
-	public void incrementValue(Map<String, Integer> map, String type) {
-		Integer count = map.get(type); // get the value of this certain key.
-		map.put(type, count + 10); // use the same key. but add its value by 1.
+	public void incrementValue(Map<String, Double> map, String type) {
+		Double count = map.get(type); // get the value of this certain key.
+		map.put(type, count + 12.50); // use the same key. but add its value by 1.
 	}
 
 }
