@@ -15,14 +15,16 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="background-image:url(puppyeyes.jpg); background-size:cover;">
 
 	<div class="container">
 		<h1>Your Match Mates</h1>
 		<c:forEach items="${space}" var="sp">
 			<!-- change "smallfurry" type to "Small & Furry" -->
 			<c:choose>
+
 				<c:when test="${sp.key =='smallfurry'}">
+
 					<h4>
 						
 						<a data-toggle="tooltip" title="click me to see your matches!" href="selected?type=${sp.key}">Small & Furry</a>

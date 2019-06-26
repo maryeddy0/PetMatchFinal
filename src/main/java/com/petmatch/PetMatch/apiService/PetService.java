@@ -20,6 +20,9 @@ import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 public class PetService {
 	@Value("${pet.key}")
 	String petKey;
+	
+	@Value("${client_secret}")
+	String clientSecret;
 
 	RestTemplate rt = new RestTemplate();
 
@@ -29,7 +32,7 @@ public class PetService {
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
 		params.put("client_id", petKey);
-		params.put("client_secret", "ATzD0I5Kl6f6FL0OQYQpmAZlc3Pmx70BQcBLCotV");
+		params.put("client_secret", clientSecret);
 
 		RestTemplate rt = new RestTemplate();
 		@SuppressWarnings("unchecked") // Q for TA/Instructor: is this ok to add in order to get rid of warning below??

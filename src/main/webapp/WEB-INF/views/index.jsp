@@ -16,7 +16,6 @@
     src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body style="background: url(index.gif); background-size: cover;">
-    
 
 
     <nav class="navbar navbar-inverse">
@@ -61,5 +60,6 @@
 
         </form>
     </div>
+
 </body>
 </html>
