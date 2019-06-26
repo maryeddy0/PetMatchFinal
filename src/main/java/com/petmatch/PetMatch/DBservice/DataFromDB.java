@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
 import com.petmatch.PetMatch.repo.PetsRepo;
 
 /*...NOTE...*/
-/*This class contains methods that help manipulate data that are relevant to database  */
+/* made this class to separate methods for API. Methods are for database stays in this class/package */
 
 @Component
 public class DataFromDB {
@@ -25,15 +24,13 @@ public class DataFromDB {
 	@Autowired
 	PetsRepo pr;
 
-	// store the types from pets database into a list
-	//	return all types called petTypeDB 
+	 //store the types from pets database into a list
 	public List<String> storeTypes() {
 		List<String> petTypeDB = pr.getType();
 		return petTypeDB;
 	}
 
 	// store the keywords from pets database into a list
-	// return the whole keywords list called keywordsList
 	public List<String> storeKeywords() {
 		List<String> keywordsList = pr.getKeywords();
 		return keywordsList;
@@ -41,17 +38,19 @@ public class DataFromDB {
 
 	// store user inputs into a List
 	// return the list called ls
-	private List<String> storeInputsIntoAList(String space, String size, String interact, String cost, String hours, String mess) {
-		List<String> ls = new ArrayList<>(Arrays.asList(space, size, interact, cost, hours, mess));
+	private List<String> storeInputsIntoAList(String space, String size, String interact, String cost, String hours,
+			String mess, String bath, String friend, String eat, String dress) {
+		List<String> ls = new ArrayList<>(Arrays.asList(space, size, interact, cost, hours, mess, bath, friend, eat, dress));
 		return ls;
 	}
 
 	// sorted their value for displaying the match bars in order
 	// store the sorted match result to hashMap
 	// return the sorted hashMap to the controller class
-	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost, String hours, String mess) {
+	public Map<String, Integer> storeMatchInHashMap(String space, String size, String interact, String cost, String hours,
+			String mess, String bath, String friend, String eat, String dress) {
 		Map<String, Integer> matchRate = new HashMap<>();
-		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess), matchRate);
+		checkMatch(storeInputsIntoAList(space, size, interact, cost, hours, mess, bath, friend, eat, dress), matchRate);
 
 		// sorted them by its value
 		Map<String, Integer> valueSortedMap = valueSortHashMapValue(matchRate);
@@ -59,7 +58,7 @@ public class DataFromDB {
 	}
 
 	// sort map value : needs to do more research about this one
-	// return sorted hash map to stroreMatchInHashMap() 
+	// return sorted hash map to stroreMatchInHashMap()
 	private Map<String, Integer> valueSortHashMapValue(Map<String, Integer> matchRate) {
 		List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(matchRate.entrySet());
 		Collections.sort(list, new MyComparator().reversed()); // check <ComparetorForSort> Class
@@ -73,16 +72,18 @@ public class DataFromDB {
 	}
 
 	// check match by loop through user inputs and keywords string
-	// return the hashMap
 	private void checkMatch(List<String> ls, Map<String, Integer> matchRate) {
-		for (int i = 0; i < ls.size(); i++) { //this ls is the user input/keywords list
-			for (int j = 0; j < storeKeywords().size(); j++) {
-				if (storeKeywords().get(j).contains(ls.get(i))) {//keywords column contains user input
-					if (matchRate.containsKey(storeTypes().get(j))) {// if the hash-map has the key/type
-						incrementValue(matchRate, storeTypes().get(j));//only increase its value
-					} else {
-						matchRate.put(storeTypes().get(j), 20);
-					}
+			for (int j = 0; j < ls.size(); j++) { // this ls is the user input/keywords list
+				for (int i = 0; i < storeTypes().size(); i++) { // check keywords/String size
+					if (storeKeywords().get(i).contains(ls.get(j))) {// keywords column contains user input
+						System.out.println("first If input "+ls.get(i));
+						if (matchRate.containsKey(storeTypes().get(i))) {// if the hash-map has the key/type
+							System.out.println("if: key: "+storeTypes().get(i));
+							incrementValue(matchRate, storeTypes().get(i));// only increase its value
+						} else {
+							System.out.println("else: key: "+storeTypes().get(i)+" "+ ls.get(i));
+							matchRate.put(storeTypes().get(i), 10);
+						}
 				}
 			}
 		}
@@ -90,12 +91,9 @@ public class DataFromDB {
 
 	// if the type is already in the hash-map(in above method tells details), then
 	// just increment the its value
-	// return the key and value in a hash map form
-	public void incrementValue(Map<String, Integer> map, String type) { 
+	public void incrementValue(Map<String, Integer> map, String type) {
 		Integer count = map.get(type); // get the value of this certain key.
-		map.put(type, count + 20); // use the same key. but add its value by 1.
+		map.put(type, count + 10); // use the same key. but add its value by 1.
 	}
-	
-	
 
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.petmatch.PetMatch.pojosDB.User;
 
 @Repository 
-public interface UserRepo extends JpaRepository <User, String> {
-
+public interface UserRepo extends JpaRepository<User, Integer> {
+	
+	User findByEmail(String email);
 }

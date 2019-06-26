@@ -11,13 +11,11 @@
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
-		<div class="container">
-		<img height="500px" width="auto" src="${basic.photos}" />
-		<br>
-		<br>
+	<div class="container">
+		<img height="500px" width="auto" src="${basic.photos}" /> <br> <br>
 		<div class="container">
 			Name: ${basic.name} <br /> Description: ${basic.description}<br />
 		</div>
@@ -28,18 +26,19 @@
 			<h3>Contact Information</h3>
 		</div>
 		<div class="container">
-			Organization Name: ${contacts.name}<br /> Contact Email:
-			${contacts.email}<br /> Contact Phone#: ${contacts.phone}<br />
-			Address: ${contacts.address.city}, ${contacts.address.state}
+			Organization Name: ${contacts.name}<br /> Contact
+			Email:${contacts.email}<br /> Contact Phone#: ${contacts.phone}<br />
+			Location: ${contacts.address.city}, ${contacts.address.state}
 			${contacts.address.postcode}
 		</div>
 		<br />
 	</div>
-	<!-- Testing view history, hasn't finish yet -->
-	<div class="container">
-		<img height="100px" width="auto" src="${viewedPetBasic.photos}"/><br>
-		Name: ${viewedPetBasic.name}
-		More Info: <!-- redirect back to description and contact-page when user clicks-->
-	</div >
+
+	<c:forEach items="${views}" var="v">
+		<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
+	${v.petName}
+	</c:forEach>
+
+
 </body>
 </html>
