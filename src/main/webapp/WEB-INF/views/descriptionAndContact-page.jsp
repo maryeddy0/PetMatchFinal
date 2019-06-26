@@ -15,9 +15,7 @@
 </head>
 <body>
 	<div class="container">
-		<img height="500px" width="auto" src="${basic.photos}" />
-		<br>
-		<br>
+		<img height="500px" width="auto" src="${basic.photos}" /> <br> <br>
 		<div class="container">
 			Name: ${basic.name} <br /> Description: ${basic.description}<br />
 		</div>
@@ -28,19 +26,19 @@
 			<h3>Contact Information</h3>
 		</div>
 		<div class="container">
-			Organization Name: ${contacts.name}<br /> Contact Email:
-			${contacts.email}<br /> Contact Phone#: ${contacts.phone}<br />
-			Address: ${contacts.address.city}, ${contacts.address.state}
+			Organization Name: ${contacts.name}<br /> Contact
+			Email:${contacts.email}<br /> Contact Phone#: ${contacts.phone}<br />
+			Location: ${contacts.address.city}, ${contacts.address.state}
 			${contacts.address.postcode}
 		</div>
 		<br />
-	</div> 
+	</div>
 
-	<c:forEach items="${view}" var="v">
-	<img height="100px" width="auto"  src="${ v.photo}"/>
+	<c:forEach items="${views}" var="v">
+		<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
 	${v.petName}
 	</c:forEach>
-	
+
 
 </body>
 </html>
