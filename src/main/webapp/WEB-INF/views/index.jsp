@@ -48,7 +48,9 @@
 			Welcome to <br>Friends for Life
 		</h1>
 	</div>
-
+	<div class="container">
+	<h2 style="color: #ff7007; font-weight: bold;">Find your ideal pet based on personality and lifestyle.</h2>
+	</div>
 	<div class="container">
 		<form action="/quiz">
 			<h3>
