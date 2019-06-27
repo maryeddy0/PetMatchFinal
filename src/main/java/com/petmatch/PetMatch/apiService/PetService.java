@@ -47,14 +47,10 @@ public class PetService {
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
 		params.put("client_id", petKey);
-
 		params.put("client_secret", clientSecret);
-
 		params.put("client_secret", "qevQ78uvL3dzNedhKrWGekeEqjsfXATdL6Obq2Z6");
 
-
-		RestTemplate rt = new RestTemplate();
-		@SuppressWarnings("unchecked") // Q for TA/Instructor: is this ok to add in order to get rid of warning below??
+		@SuppressWarnings("unchecked")//get rid of the warning appear in the next line code
 		Map<String, String> response = rt.postForObject("https://api.petfinder.com/v2/oauth2/token", params, Map.class);
 		return response.get("access_token");
 	}
@@ -62,8 +58,6 @@ public class PetService {
 	// get Type from user, and match the type with API type name
 	// return the sepcific type
 	public String matchTheTypeNameWithAPI(String type) {
-
-
 		 if (type.equalsIgnoreCase("reptile")) {
 			type = "scales-fins-other";
 		} else if (type.equalsIgnoreCase("smallfurry")) {
@@ -85,13 +79,13 @@ public class PetService {
 			ssp = createPetBasicInfo(petIDResponse, ssp, petID); // method call //the ID here just helps to stack to
 																	// trace which pet user viewed
 			petsInfo.add(ssp);
-//			addPetToArrayList(petsInfo, petID);
 		}
-//		getResponseForEachPet(petResponse, petsInfo);
 		return petsInfo;
 	}
 
-	private ResponseEntity<Pet> getJsonBodyFromAnimalIDEndPoint(Integer petID) {
+	//Get json body from endpoint: https://api.petfinder.com/v2/animals/{animalID}
+	//return the Json body
+	public ResponseEntity<Pet> getJsonBodyFromAnimalIDEndPoint(Integer petID) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + getToken());
 		String url2 = "https://api.petfinder.com/v2/animals/" + petID;// endpoint
@@ -102,9 +96,6 @@ public class PetService {
 
 	public StoreSelectedPets createPetBasicInfo(ResponseEntity<Pet> petIDResponse, StoreSelectedPets ssp,
 			Integer petID) {
-		// check the photo from API is not empty
-		// there is definitely a better way to do the same thing here, I just don't know
-		// yet.
 		if (petIDResponse.getBody().getAnimal().getPhotos().isEmpty()) {
 			ssp.setPhotos(
 					"https://smhttp-ssl-50970.nexcesscdn.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_available_3.jpg");
@@ -122,22 +113,24 @@ public class PetService {
 		return ssp;
 	}
 
+	//store pet information to the History Object
+	//method call: checkIfThePetIDExistInDB()
+	//return History object
 	public List<History> savePetDataToDB(String photo, String name, Integer petID,
 			ResponseEntity<PetOrganization> orgResponse) {
 		String petEmail = orgResponse.getBody().getOrganization().getEmail();
 		String petPhone = orgResponse.getBody().getOrganization().getPhone();
 		String petOrgName = orgResponse.getBody().getOrganization().getName();
-		// Returns the object bound with the specified name in this session, or null if
-		// no object is bound under the name.
 		User userFromDBContoller = (User) session.getAttribute("user1");
-		// System.out.println("FIX ME USER: " + userFromDBContoller);
 		History test = new History(userFromDBContoller.getUserid(), petID, photo, name, petEmail, petPhone, petOrgName);
-		// System.out.println(test);
 		List<History> history = checkIfThePetIDExistInDB(petID, test);
 		return history;
 	}
-
-	private List<History> checkIfThePetIDExistInDB(Integer petID, History test) {
+	
+	//check if DB already has the pet that user already reviewed
+	// method call: getNewestViewAndSetMaxDisplay()
+	//return the history object by calling the method => getNewestViewAndSetMaxDisplay()
+	public List<History> checkIfThePetIDExistInDB(Integer petID, History test) {
 		if (hr.findByPetID(petID) == null) {
 			hr.save(test);
 		}
@@ -147,14 +140,18 @@ public class PetService {
 		return getNewestViewAndsetMaxDisplay(history);
 	}
 
-	private List<History> getNewestViewAndsetMaxDisplay(List<History> history) {
+	//get the most recent 5 view history
+	//return the History object
+	public List<History> getNewestViewAndsetMaxDisplay(List<History> history) {
 		Collections.reverse(history);
 		if (history.size() > 6) {
 			history = history.subList(1, 6);
 		}
 		return history;
 	}
-
+	
+	//Get json body from endpoint: https://api.petfinder.com/v2/organizations/{organizationid}
+	//return the Json body
 	public ResponseEntity<PetOrganization> getJsonBodyFromOganizationIDEndPoint(String organizationID) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + getToken());
@@ -164,10 +161,11 @@ public class PetService {
 		return orgResponse;
 	}
 
+	//Get json body from endpoint: https://api.petfinder.com/v2/animals/type=?&limit=8
+	//return the Json body
 	public ResponseEntity<Pets> getJsonBodyFromAnimalsEndPoint(String type) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + getToken());
-
 		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=8";
 		ResponseEntity<Pets> petResponse = rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers),
 				Pets.class);

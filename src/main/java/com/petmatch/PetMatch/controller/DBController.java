@@ -64,6 +64,9 @@ public class DBController {
         return mv;
     }
     
+    //take in email as param
+    //check is the email already exist in database
+    //return to the quest page
 	@RequestMapping("/quiz")
 	public ModelAndView indexToQuestions(@RequestParam("email") String email) {
 		User user;
@@ -78,6 +81,8 @@ public class DBController {
 		return new ModelAndView("quest");
 	}
 	
+	//take in 5 params
+	//save them into History object and display them on viewedPet-page.jsp
 	@RequestMapping("/viewedPet")
 	public ModelAndView getViewedHistory(@RequestParam("petPhoto") String petPhoto, 
 										 @RequestParam("petName") String petName,

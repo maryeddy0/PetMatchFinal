@@ -40,6 +40,9 @@
 
 .card {
 	box-shadow: 0 30px 100px 0 rgba(0, 0, 0, 5);
+	height: 100;
+	width: auto;
+	overflow: hidden;
 }
 
 .c::after, .row::after {
