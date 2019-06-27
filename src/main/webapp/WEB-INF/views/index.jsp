@@ -37,8 +37,6 @@
 				<a class="navbar-brand" href="#">Friends for Life</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/">Home</a></li>
-
 			</ul>
 		</div>
 	</nav>
