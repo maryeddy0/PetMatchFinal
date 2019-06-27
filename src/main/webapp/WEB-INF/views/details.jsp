@@ -11,13 +11,18 @@
 	rel="stylesheet"
 	integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp"
 	crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="mask-size: 3em;">
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
 
-
-<body>
-
+			</ul>
+		</div>
+	</nav>
 	<div class="row">
 		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
 		<c:forEach items="${basicInfo}" var="i">

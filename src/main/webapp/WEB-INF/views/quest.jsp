@@ -1,30 +1,35 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css"> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Question test page</title>
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-
 <body style="background-image:url(puppy.jpg); background-size: cover; font-size:19px;  background-attachment: fixed;
     height:700px;">
+    <nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+
+			</ul>
+		</div>
+	</nav>
 
 <div id="parent" style="height:1200px; padding-top:40px; margin-left:10%; float:left; width:550px; position:absolute; z-index: 2;
     position: inherit;">
 
 <h1 style="color:#ff7007; font-style:heavy; font-size: 100px; font-weight:bold;">Friends for Life Quiz</h1>
 <h2>Select an answer for each question below to find your best match</h2>
-
 
 <form name="quest" action="/matchResults" >
  <p>1. What type of space would you mostly share with your pet?</p>
