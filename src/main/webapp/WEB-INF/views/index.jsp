@@ -75,11 +75,11 @@
 							<div class="form-group">
 								<label for="usrname"><span
 									class="glyphicon glyphicon-user"></span> Enter your email: </label> <input
-									type="text" class="form-control" id="usrname"
-									placeholder="Enter email">
+									type="email" class="form-control" id="usrname"
+									placeholder="Enter email" required>
 							</div>
 							<br />
-							<button type="submit" name="email"
+							<button type="submit" name="email" 
 								class="btn btn-success btn-block">
 								<span class="glyphicon glyphicon-off"></span> Login
 							</button>
@@ -118,8 +118,8 @@
 							<div class="form-group">
 								<label for="usrname"><span
 									class="glyphicon glyphicon-user"></span> Enter your email: </label><br>
-								<input type="text" class="form-control" id="username"
-									placeholder="Enter email">
+								<input type="email" class="form-control" id="username"
+									placeholder="Enter email" required>
 							</div>
 							<br /> <br />
 							<button type="submit" name="email"

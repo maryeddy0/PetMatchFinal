@@ -34,7 +34,7 @@ public class YelpController {
 		mv.addObject("zipcode", zipcode);
 
 		if(zipcode.length() > 5) {
-			mv.addObject("zipcode", "Sorry, zip code is not invaid!");
+			mv.addObject("zipcode", "Sorry, zip code is invalid!");
 		}else {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add("Authorization","Bearer "+ yelpKey);
