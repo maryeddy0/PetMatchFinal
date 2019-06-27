@@ -48,7 +48,6 @@ public class PetService {
 		params.put("grant_type", "client_credentials");
 		params.put("client_id", petKey);
 		params.put("client_secret", clientSecret);
-		params.put("client_secret", "qevQ78uvL3dzNedhKrWGekeEqjsfXATdL6Obq2Z6");
 
 		@SuppressWarnings("unchecked")//get rid of the warning appear in the next line code
 		Map<String, String> response = rt.postForObject("https://api.petfinder.com/v2/oauth2/token", params, Map.class);
