@@ -6,9 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +14,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.petmatch.PetMatch.DBservice.DataFromDB;
 import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.entities.PetOrganization;
 import com.petmatch.PetMatch.entities.Pets;
 import com.petmatch.PetMatch.entityTypes.StoreSelectedPets;
 import com.petmatch.PetMatch.pojosDB.History;
+import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.HistoryRepo;
 import com.petmatch.PetMatch.repo.UserRepo;
 
@@ -36,6 +35,9 @@ public class PetController {
 
 	@Autowired
 	UserRepo ur;
+	
+	@Autowired
+	DataFromDB db;
 
 	@Autowired
 	HttpSession session; //Provides a way to identify a user across more than one page request or
@@ -45,26 +47,31 @@ public class PetController {
 
 	RestTemplate rt = new RestTemplate();
 
-	@RequestMapping("/")
-	public ModelAndView index() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "Bearer " + ps.getToken());
+	//URL link: quiz
+	//requre param: user input email
+	//reture to quest jsp page
+	@RequestMapping("/quiz")
+	public ModelAndView indexToQuestions(@RequestParam("email") String email ) {
+		User user;
+		if(ur.findByEmail(email) == null) {//if not find
+			user = new User(email);
+			ur.save(user);
+			session.setAttribute("user1", user); //Binds an object to this session, using the name specified.
+		}else{
+			user = ur.findByEmail(email); //find the specific email if exists in the table
+			session.setAttribute("user1", user);//(String name, Object value), no return
+		}
+		return new ModelAndView("quest");
+	}	
 
-		ResponseEntity<Pets> petResponse = rt.exchange("https://api.petfinder.com/v2/animals", HttpMethod.GET,
-				new HttpEntity<>("paramters", headers), Pets.class);
-
-		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("display", petResponse.getBody().getAnimals());
-		return mv;
-	}
 
 	// URL link: selected
 	// required param: String type
 	// model "basicInfor" with value "petsInfo"
 	// view page: details
 	@RequestMapping("/selected")
-	public ModelAndView detailedInfo(@RequestParam("type") String type) {
-		System.out.println("type :" +type);
+	public ModelAndView detailedInfo(@RequestParam("type") String type, @RequestParam("email") String email) {
+		db.checkEmailInDB(email);
 		type = ps.matchTheTypeNameWithAPI(type);
 		ResponseEntity<Pets> petResponse = ps.getJsonBodyFromAnimalsEndPoint(type);
 
@@ -74,6 +81,22 @@ public class PetController {
 		mv.addObject("basicInfo", petsInfo);
 		return mv;
 	}
+	
+	//does the same thing like the method detailedInfo() above
+	//the only difference is this method deosn't request email as param
+	@RequestMapping("/selected1")
+	public ModelAndView detailedInfo1(@RequestParam("type") String type) {
+		type = ps.matchTheTypeNameWithAPI(type);
+		ResponseEntity<Pets> petResponse = ps.getJsonBodyFromAnimalsEndPoint(type);
+
+		ArrayList<StoreSelectedPets> petsInfo = ps.savePetBasicInfoObjectToAList(petResponse);
+		
+		ModelAndView mv = new ModelAndView("details");
+		mv.addObject("basicInfo", petsInfo);
+		return mv;
+	}
+
+
 
 
 

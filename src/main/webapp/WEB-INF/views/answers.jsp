@@ -32,13 +32,13 @@
 
 					<h4>
 						
-						<a data-toggle="tooltip" title="click me to see your matches!" href="selected?type=${sp.key}">Small & Furry</a>
+						<a data-toggle="tooltip" title="click me to see your matches!" href="selected1?type=${sp.key}">Small & Furry</a>
 					</h4>
 				</c:when>
 				
 				<c:otherwise>
 					<h4>
-						<a data-toggle="tooltip" title="click me to see your matches!" href="selected?type=${sp.key}"> ${sp.key}</a>
+						<a data-toggle="tooltip" title="click me to see your matches!" href="selected1?type=${sp.key}"> ${sp.key}</a>
 					</h4>
 				</c:otherwise>
 			</c:choose>

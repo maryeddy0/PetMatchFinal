@@ -1,6 +1,5 @@
 package com.petmatch.PetMatch.controller;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.petmatch.PetMatch.DBservice.DataFromDB;
 import com.petmatch.PetMatch.apiService.PetService;
 import com.petmatch.PetMatch.pojosDB.History;
-import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.PetsRepo;
 import com.petmatch.PetMatch.repo.UserRepo;
 
@@ -30,9 +28,6 @@ public class DBController {
 	
 	@Autowired
 	DataFromDB db;
-	
-	@Autowired
-	HttpSession session;
 	
 	@Autowired
 	UserRepo ur;
@@ -64,22 +59,6 @@ public class DBController {
         return mv;
     }
     
-    //take in email as param
-    //check is the email already exist in database
-    //return to the quest page
-	@RequestMapping("/quiz")
-	public ModelAndView indexToQuestions(@RequestParam("email") String email) {
-		User user;
-		if(ur.findByEmail(email) == null) {//if not find
-			user = new User(email);
-			ur.save(user);
-			session.setAttribute("user1", user); //Binds an object to this session, using the name specified.
-		}else{
-			user = ur.findByEmail(email); //find the specific email if exists in the table
-			session.setAttribute("user1", user);//(String name, Object value), no return
-		}
-		return new ModelAndView("quest");
-	}
 	
 	//take in 5 params
 	//save them into History object and display them on viewedPet-page.jsp
