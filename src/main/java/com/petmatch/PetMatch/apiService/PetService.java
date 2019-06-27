@@ -42,7 +42,7 @@ public class PetService {
 	RestTemplate rt = new RestTemplate();
 
 	// get token from PetFinderAPI
-	// return the token to controller
+	// return the token
 	public String getToken() {
 		Map<String, String> params = new HashMap<>();
 		params.put("grant_type", "client_credentials");
@@ -165,7 +165,7 @@ public class PetService {
 	public ResponseEntity<Pets> getJsonBodyFromAnimalsEndPoint(String type) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "Bearer " + getToken());
-		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=8";
+		String url1 = "https://api.petfinder.com/v2/animals?type=" + type + "&limit=1";
 		ResponseEntity<Pets> petResponse = rt.exchange(url1, HttpMethod.GET, new HttpEntity<>("paramters", headers),
 				Pets.class);
 		return petResponse;

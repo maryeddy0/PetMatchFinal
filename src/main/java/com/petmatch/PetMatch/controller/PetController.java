@@ -119,9 +119,10 @@ public class PetController {
 		return mv;
 	}
 
-
-
-
-
+	/*
+	 * @RequestMapping("/") public ModelAndView index() {
+	 * System.out.println("token " + ps.getToken()); return new
+	 * ModelAndView("index", "yes", "hello"); }
+	 */
 
 }

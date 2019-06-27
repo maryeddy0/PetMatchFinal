@@ -28,8 +28,8 @@
 }
 </style>
 </head>
-
 <body style="background: url(index.gif); background-size: cover;">
+
 
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -49,8 +49,12 @@
 		</h1>
 	</div>
 	<div class="container">
-	<h2 style="color: #ff7007; font-weight: bold;">Find your ideal pet based on personality and lifestyle.</h2>
+		<h3 style="color: #ff7007; font-weight: bold;">Find your ideal
+			pet based on personality and lifestyle.</h3>
 	</div>
+	<br>
+	<br>
+	<br>
 	<div class="container">
 		<form action="/quiz">
 			<h3>
@@ -130,6 +134,8 @@
 			</div>
 		</form>
 	</div>
+
+
 	<script>
 		$(document).ready(function() {
 			$("#myBtn").click(function() {
