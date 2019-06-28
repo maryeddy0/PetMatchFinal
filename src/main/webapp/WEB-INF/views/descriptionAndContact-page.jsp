@@ -48,7 +48,7 @@
 	<h2>To find more adoption resources in your area, enter your zip code below</h2>
 	
 	<form action ="/resultsyelp" method = "POST">
-        <input type="number" name="zipcode"  minlength="8" required><br>
+      <Label>Zip Code:</Label>  <input type="text" name="zipcode" pattern="[0-9]{5}" required><br>
         <input type= "submit" value="Submit">
    
     </form>
