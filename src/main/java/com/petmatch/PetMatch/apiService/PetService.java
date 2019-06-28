@@ -143,7 +143,7 @@ public class PetService {
 	//return the History object
 	public List<History> getNewestViewAndsetMaxDisplay(List<History> history) {
 		Collections.reverse(history);
-		if (history.size() > 6) {
+		if (history.size() > 5) {
 			history = history.subList(1, 6);
 		}
 		return history;

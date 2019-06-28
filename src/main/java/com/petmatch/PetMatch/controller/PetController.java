@@ -90,7 +90,6 @@ public class PetController {
 		ResponseEntity<Pets> petResponse = ps.getJsonBodyFromAnimalsEndPoint(type);
 
 		ArrayList<StoreSelectedPets> petsInfo = ps.savePetBasicInfoObjectToAList(petResponse);
-		
 		ModelAndView mv = new ModelAndView("details");
 		mv.addObject("basicInfo", petsInfo);
 		return mv;
@@ -108,9 +107,7 @@ public class PetController {
             @RequestParam("orgID") String organizationID, @RequestParam("petID") Integer petID) {
         // some description has null value, will add validation for it later on
         ResponseEntity<PetOrganization> orgResponse = ps.getJsonBodyFromOganizationIDEndPoint(organizationID);
- 
         StoreSelectedPets s = new StoreSelectedPets(photo, name, description);
-        
         ModelAndView mv = new ModelAndView("descriptionAndContact-page");
 		List<History> history = ps.savePetDataToDB(photo, name, petID, orgResponse);
         mv.addObject("basic", s);

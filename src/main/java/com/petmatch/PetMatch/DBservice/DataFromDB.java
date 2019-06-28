@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.PetsRepo;
@@ -22,6 +23,7 @@ import com.petmatch.PetMatch.repo.UserRepo;
 /*...NOTE...*/
 /* made this class to separate methods for API. Methods are for database stays in this class/package */
 
+@SessionAttributes("user1") // passing through controllers
 @Component
 public class DataFromDB {
 
