@@ -69,7 +69,7 @@
 		<img id="left" style="max-height:400px; width:auto;" src="${basic.photos}"><br><br>
 		
 		<div id="right">
-			<h4>Name: ${basic.name} <br /> Description: ${basic.description}</h4>
+			<h4>Name: ${basic.name}</h4><h4>Description:</h4> ${basic.description}
 
 			<h3>Contact Information</h3>
 			Organization Name: ${contacts.name}<br /> Contact
@@ -92,8 +92,10 @@
 	<div id="last-viewed">
 		<h3>Your most recent 5 views:</h3>
 		<c:forEach items="${views}" var="v">
+		
 			<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
 			${v.petName}
+			
 		</c:forEach>
 	</div>
 
