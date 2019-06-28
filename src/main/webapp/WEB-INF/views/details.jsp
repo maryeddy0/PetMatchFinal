@@ -23,24 +23,30 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="row">
-		<!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
-		<c:forEach items="${basicInfo}" var="i">
-			<div class="column">
-				<div class="card">
-					<div style="padding: 3px;">
-						<div class="c">
-							<img id="img" src="${i.photos}" /><br /> Name: ${i.name} <br /> Gender:
-							${i.gender} <br /> Age: ${i.age} <br />
-							<!-- URL link: moreDetail -->
-							<a
-								href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
-									class="button">More Description</button></a><br />
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
+	    <div class="row">
+        <!-- Display basic pet Info one by one with a link to descriptionAndContact-page -->
+        <c:forEach items="${basicInfo}" var="i">
+            <div class="column">
+                <div class="card">
+                 
+					<div style="height:450px;" >
+						<div style="padding:10px;">
+						<div style=" height:300px; max-width: 95%; overflow:hidden;" >
+                            <img id="img" src="${i.photos}">
+                            </div > 
+                            
+                            <br> Name: ${i.name} <br /> Gender:
+                            ${i.gender} <br /> Age: ${i.age} <br />
+                            <!-- URL link: moreDetail -->
+                            <a
+                                href="moreDetail?description=${i.description}&photo=${i.photos}&name=${i.name}&orgID=${i.organizationID}&petID=${i.petID}"><button
+                                    class="button">More Information</button></a><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+
 </body>
 </html>

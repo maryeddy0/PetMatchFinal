@@ -13,6 +13,45 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<style type="text/css">
+
+.container {
+    width: 1000px;
+    margin: 0px auto;
+    /*display:table;*/
+    position:relative;
+   max-height:500px;
+}
+
+    #left {
+        width: 600px;
+        display:inline-block;
+        /*float:left;*/
+        position:absolute;
+        left:0;
+    }
+
+    #right {
+   
+        width: 500px;
+        border-radius: 3px;
+        display:inline-block;
+        /*float:right;*/
+        position:absolute;
+        right:0;
+        }
+        
+   #last-viewed{
+	padding-top: 400px;
+    display: inline-block;
+    
+   }
+
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -24,38 +63,33 @@
 		</div>
 	</nav>
 	<!-- Pet basic infor and contacts -->
+	<!-- Pet basic infor and contacts -->
 	<div class="container">
-		<img height="300px" width="auto" src="${basic.photos}" /> <br> <br>
-		<div class="container">
-			Name: ${basic.name} <br /> Description: ${basic.description}<br />
-		</div>
-	</div>
-	<div class="container">
-		<div class="container">
-			<br>
+		
+		<img id="left" style="max-height:400px; width:auto;" src="${basic.photos}"><br><br>
+		
+		<div id="right">
+			<h4>Name: ${basic.name} <br /> Description: ${basic.description}</h4>
+
 			<h3>Contact Information</h3>
-		</div>
-		<div class="container">
 			Organization Name: ${contacts.name}<br /> Contact
 			Email:${contacts.email}<br /> Contact Phone#: ${contacts.phone}<br />
 			Location: ${contacts.address.city}, ${contacts.address.state}
 			${contacts.address.postcode}
-		</div>
-		<br />
-	</div>
+	
 	<!-- Yelp Part! -->
-	<div class="container">
-	<h2>To find more adoption resources in your area, enter your zip code below</h2>
+	<div id="bottom">
+	<h3>To find more adoption resources in your area, enter your zip code below</h3>
 	
 	<form action ="/resultsyelp" method = "POST">
-      <Label>Zip Code:</Label>  <input type="text" name="zipcode" pattern="[0-9]{5}" required><br>
+        <input type="number" name="zipcode"  minlength="8" required><br>
         <input type= "submit" value="Submit">
-   
     </form>
-    
 	</div>
+		</div>
+	
 	<!-- view history part -->
-	<div class="container">
+	<div id="last-viewed">
 		<h3>Your most recent 5 views:</h3>
 		<c:forEach items="${views}" var="v">
 			<a href="viewedPet?petPhoto=${v.photo}&petName=${v.petName}&contactEmail=${v.contactEmail}&contactPhone=${v.contactPhone}&orgName=${organizationName}"><img height="100px" width="auto" src="${v.photo}"></a>
