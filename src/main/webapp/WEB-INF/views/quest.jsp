@@ -14,8 +14,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-image:url(puppy.jpg); background-size: cover; font-size:19px;  background-attachment: fixed;
-    height:700px;">
+<body style="background-image:url(puppy.jpg); background-size: cover; font-size:28px;  background-attachment: fixed;
+    max-height:auto;">
     <nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
@@ -25,12 +25,12 @@
 		</div>
 	</nav>
 
-<div id="parent" style="height:1200px; padding-top:40px; margin-left:10%; float:left; width:550px; position:absolute; z-index: 2;
+<div id="parent" style="height:1200px; padding-top:40px; margin-left:10%; float:left; width:800px; position:absolute; z-index: 2;
     position: inherit;">
 
-<h1 style="color:#ff7007; font-style:heavy; font-size: 100px; font-weight:bold;">Friends for Life Quiz</h1>
-<h2>Select an answer for each question below to find your best match</h2>
-
+<h1 style="color:#ff7007; font-style:heavy; font-size: 130px; font-weight:bold;">Friends for Life Quiz</h1>
+<h1>Select an answer for each question below<br> to find your best match</h1>
+<br>
 <form name="quest" action="/matchResults" >
  <p>1. What type of space would you mostly share with your pet?</p>
 <input type="radio" name="space" value="backyard">Backyard<br>
