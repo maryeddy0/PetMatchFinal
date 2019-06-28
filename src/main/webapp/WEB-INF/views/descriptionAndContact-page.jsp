@@ -25,7 +25,7 @@
 	</nav>
 	<!-- Pet basic infor and contacts -->
 	<div class="container">
-		<img height="500px" width="auto" src="${basic.photos}" /> <br> <br>
+		<img height="300px" width="auto" src="${basic.photos}" /> <br> <br>
 		<div class="container">
 			Name: ${basic.name} <br /> Description: ${basic.description}<br />
 		</div>

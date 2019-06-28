@@ -72,7 +72,7 @@
 							<div class="form-group">
 								<label for="usrname"><span
 									class="glyphicon glyphicon-user"></span> Enter your email: </label> <input
-									type="email" class="form-control" id="usrname"
+									type="email" class="form-control" name="email" id="usrname"
 									placeholder="Enter email" required>
 							</div>
 							<br />
@@ -115,7 +115,7 @@
 							<div class="form-group">
 								<label for="usrname"><span
 									class="glyphicon glyphicon-user"></span> Enter your email: </label><br>
-								<input type="email" class="form-control" id="username"
+								<input type="email" name="email" class="form-control" id="username"
 									placeholder="Enter email" required>
 							</div>
 							<br /> <br />
