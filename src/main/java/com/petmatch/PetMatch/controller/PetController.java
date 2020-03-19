@@ -24,8 +24,11 @@ import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.HistoryRepo;
 import com.petmatch.PetMatch.repo.UserRepo;
 
+//@Contoller here does 2 things: 1. we declare that this class is a Spring bean and should be created and maintained by Spring ApplicationContext
+							//   2. Indicates that its a controller in MVC setup, this latter property is used by web-specific tools and functionalities.
+							// Ex: DispatcherServlet will look for @RequestMapping on classes which are annotated using @Controller but not with @Component.
 @SessionAttributes("user1")//passing through controllers
-@Controller
+@Controller   
 public class PetController {
 	@Autowired
 	PetService ps;

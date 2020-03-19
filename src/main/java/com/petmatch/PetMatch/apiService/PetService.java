@@ -25,7 +25,7 @@ import com.petmatch.PetMatch.pojosDB.User;
 import com.petmatch.PetMatch.repo.HistoryRepo;
 
 @SessionAttributes("user1") // passing through controllers
-@Component
+@Component 
 public class PetService {
 	@Value("${pet.key}")
 	String petKey;

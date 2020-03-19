@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.petmatch.PetMatch.pojosDB.PetTable;
 
-@Repository 
+
+@Repository
 public interface PetsRepo extends JpaRepository<PetTable, Integer> {
 	//get all keywords from database
 	@Query("select keywords from PetTable p")

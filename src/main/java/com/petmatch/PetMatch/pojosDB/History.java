@@ -6,10 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+@Entity // to map this class to DB table use Entity annotation provided by JPA
 public class History {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id //reperents primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //becoz the value of id is AI
 	private Integer id;
 	private Integer userid;
 	@Column(name = "petid")
